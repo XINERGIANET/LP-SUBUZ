@@ -40,7 +40,7 @@ export function WordReveal({ text, className, delay = 0 }: WordRevealProps) {
 
   return (
     <motion.div
-      style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'inherit' }}
+      style={{ display: 'flex', flexWrap: 'wrap' }}
       variants={container}
       initial="hidden"
       animate="visible"

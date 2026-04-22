@@ -13,10 +13,10 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 md:pt-32">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left - Text Content */}
-          <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+          <div className="space-y-6 md:space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -27,22 +27,22 @@ export function Hero() {
               <Sparkles size={16} />
               ¡Tu Mejor Compañía desde 2022!
             </motion.div>
-
+ 
             {/* Main Heading */}
-            <h1 className="space-y-2 md:space-y-3">
+            <h1 className="w-full flex flex-col items-center lg:items-start space-y-1 md:space-y-3">
               <WordReveal 
                 text="AGUA" 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-tight justify-center lg:justify-start"
+                className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-tight justify-center lg:justify-start w-full text-center"
                 delay={0.2}
               />
               <WordReveal 
                 text="PURIFICADA" 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-[#0066FF] justify-center lg:justify-start"
+                className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-[#0066FF] justify-center lg:justify-start w-full text-center"
                 delay={0.4}
               />
               <WordReveal 
                 text="& HIELO GOURMET" 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-tight justify-center lg:justify-start"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-tight justify-center lg:justify-start w-full text-center"
                 delay={0.6}
               />
             </h1>

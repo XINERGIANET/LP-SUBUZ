@@ -32,8 +32,8 @@ export function Navbar() {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'glass shadow-elegant-lg py-3'
-          : 'bg-transparent py-6'
+          ? 'glass shadow-elegant-lg py-2 md:py-3'
+          : 'bg-transparent py-4 md:py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +48,7 @@ export function Navbar() {
               <img
                 src={subuzLogo}
                 alt="SUBUZ - Agua de Mesa y Hielo"
-                className="h-10 md:h-12 lg:h-14 w-auto"
+                className="h-8 md:h-12 lg:h-14 w-auto"
               />
             </Magnetic>
           </motion.a>
