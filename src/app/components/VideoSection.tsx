@@ -33,7 +33,7 @@ export function VideoSection() {
   };
 
   return (
-    <section className="py-16 md:py-32 relative overflow-hidden">
+    <section id="esencia" className="py-24 md:py-32 relative overflow-hidden scroll-mt-20">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#0066FF]/3 rounded-full blur-3xl"></div>
 
@@ -83,7 +83,7 @@ export function VideoSection() {
                   onClick={handlePlay}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative"
+                  className="group relative z-30"
                 >
                   {/* Pulse rings */}
                   <motion.div
@@ -102,8 +102,8 @@ export function VideoSection() {
                 </motion.button>
 
                 {/* Video Title Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 to-transparent">
-                  <h3 className="text-2xl md:text-3xl font-black text-white">
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
+                  <h3 className="text-lg md:text-3xl font-black text-white">
                     SUBUZ: Tu Mejor Compañía #MásGourmet
                   </h3>
                 </div>
