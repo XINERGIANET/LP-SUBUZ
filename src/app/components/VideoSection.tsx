@@ -9,12 +9,19 @@ export function VideoSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handlePlay = () => {
-    setIsPlaying(true);
-    setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play();
-      }
-    }, 100);
+    if (videoRef.current) {
+      videoRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(error => {
+        console.error("Video play failed, trying muted:", error);
+        if (videoRef.current) {
+          videoRef.current.muted = true;
+          videoRef.current.play().then(() => {
+            setIsPlaying(true);
+          });
+        }
+      });
+    }
   };
 
   const handleClose = (e: React.MouseEvent) => {
@@ -106,10 +113,13 @@ export function VideoSection() {
             {/* Actual Video Tag */}
             <video
               ref={videoRef}
-              className={`w-full h-full object-cover transition-opacity duration-500 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
+              className="w-full h-full object-cover"
               src={subuzVideo}
+              poster={subuzThumbnail}
               controls={isPlaying}
               playsInline
+              webkitPlaysInline
+              preload="auto"
             />
 
             {/* Close button when playing */}

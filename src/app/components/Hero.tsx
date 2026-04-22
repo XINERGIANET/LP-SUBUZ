@@ -29,7 +29,7 @@ export function Hero() {
             </motion.div>
 
             {/* Main Heading */}
-            <div className="space-y-2 md:space-y-3">
+            <h1 className="space-y-2 md:space-y-3">
               <WordReveal 
                 text="AGUA" 
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-tight justify-center lg:justify-start"
@@ -45,7 +45,7 @@ export function Hero() {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-tight justify-center lg:justify-start"
                 delay={0.6}
               />
-            </div>
+            </h1>
 
             {/* Hashtag */}
             <motion.div
