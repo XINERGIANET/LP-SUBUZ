@@ -20,6 +20,8 @@ interface SectionSlideProps {
   imageLoading?: 'eager' | 'lazy';
   imageFetchPriority?: 'high' | 'low' | 'auto';
   children?: ReactNode;
+  /** id para anclas (#) y scroll con navbar fija */
+  sectionId?: string;
 }
 
 export function SectionSlide({
@@ -38,6 +40,7 @@ export function SectionSlide({
   imageLoading = 'lazy',
   imageFetchPriority,
   children,
+  sectionId,
 }: SectionSlideProps) {
   const paragraphs = Array.isArray(description) ? description : [description];
   const isTextLeft = textSide === 'left';
@@ -61,7 +64,10 @@ export function SectionSlide({
 
   return (
     <section
-      className={`subuz-page grid w-full grid-cols-1 md:grid-cols-2 ${minH} md:items-stretch`}
+      id={sectionId}
+      className={`subuz-page grid w-full grid-cols-1 md:grid-cols-2 ${minH} md:items-stretch ${
+        sectionId ? 'scroll-mt-24 md:scroll-mt-28' : ''
+      }`}
     >
       <motion.div
         initial={{ opacity: 0, y: 12 }}

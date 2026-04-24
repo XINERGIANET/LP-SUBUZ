@@ -56,6 +56,7 @@ export function Footer() {
                 { label: 'Inicio', to: '/' },
                 { label: '¿Quiénes Somos?', to: '/nosotros' },
                 { label: 'Productos', to: '/productos' },
+                { label: 'Servicios', to: '/servicios' },
                 { label: '¿Cómo trabajamos?', to: '/proceso' },
                 { label: 'Clientes', to: '/clientes' },
                 { label: 'Contacto', to: '/contacto' },

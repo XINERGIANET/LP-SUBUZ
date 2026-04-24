@@ -6,6 +6,7 @@ import { ProductosPage } from './pages/ProductosPage';
 import { ProcesoPage } from './pages/ProcesoPage';
 import { ClientesPage } from './pages/ClientesPage';
 import { ContactoPage } from './pages/ContactoPage';
+import { ServiciosPage } from './pages/ServiciosPage';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/nosotros" element={<NosotrosPage />} />
           <Route path="/productos" element={<ProductosPage />} />
+          <Route path="/servicios" element={<ServiciosPage />} />
           <Route path="/proceso" element={<ProcesoPage />} />
           <Route path="/clientes" element={<ClientesPage />} />
           <Route path="/contacto" element={<ContactoPage />} />
