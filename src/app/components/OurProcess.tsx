@@ -45,7 +45,7 @@ export function OurProcess() {
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] mb-4 md:mb-6 px-4"
           >
-            Nuestro <span className="text-[#0066FF]">Proceso</span>
+            ¿Cómo <span className="text-[#0066FF]">trabajamos?</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}

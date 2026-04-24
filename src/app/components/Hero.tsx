@@ -1,19 +1,15 @@
 import { ArrowDown, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router';
 import subuzProducts from '../../imports/image-15.png';
 import { WordReveal } from './ui/WordReveal';
 import { Magnetic } from './ui/Magnetic';
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Subtle accent */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#0066FF]/5 rounded-full blur-3xl"></div>
-      </div>
-
+    <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-[#E6F2FF]">
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 md:pt-32">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left - Text Content */}
           <div className="space-y-6 md:space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -170,16 +166,16 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* CTA link to Productos */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
         <Magnetic>
-          <div className="p-4 cursor-pointer">
+          <Link to="/productos" aria-label="Ver productos" className="p-4 cursor-pointer inline-flex">
             <ArrowDown className="text-[#0066FF]" size={32} />
-          </div>
+          </Link>
         </Magnetic>
       </motion.div>
     </section>

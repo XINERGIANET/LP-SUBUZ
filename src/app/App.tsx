@@ -1,56 +1,26 @@
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { VideoSection } from './components/VideoSection';
-import { About } from './components/About';
-import { OurMission } from './components/OurMission';
-import { OurProcess } from './components/OurProcess';
-import { FeaturedProducts } from './components/FeaturedProducts';
-import { WhyChoose } from './components/WhyChoose';
-import { Stats } from './components/Stats';
-import { ClientsGallery } from './components/ClientsGallery';
-import { ContactInfo } from './components/ContactInfo';
-import { Footer } from './components/Footer';
-import { ScrollToTop } from './components/ScrollToTop';
-import { Preloader } from './components/ui/Preloader';
-import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router';
+import { Layout } from './components/Layout';
+import { HomePage } from './pages/HomePage';
+import { NosotrosPage } from './pages/NosotrosPage';
+import { ProductosPage } from './pages/ProductosPage';
+import { ProcesoPage } from './pages/ProcesoPage';
+import { ClientesPage } from './pages/ClientesPage';
+import { ContactoPage } from './pages/ContactoPage';
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
-    <div className={`min-h-screen relative ${isLoading ? 'overflow-hidden' : ''}`}>
-      <Preloader onLoadingComplete={() => setIsLoading(false)} />
-      {/* Global water background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1626690392822-6591984d3c96?w=1920&q=80)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.08,
-          }}
-        />
-      </div>
-
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <VideoSection />
-        <About />
-        <OurMission />
-        <OurProcess />
-        <FeaturedProducts />
-        <WhyChoose />
-        <Stats />
-        <ClientsGallery />
-        <ContactInfo />
-        <div className="relative bg-white z-20">
-          <Footer />
-        </div>
-      </div>
-
-      <ScrollToTop />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/nosotros" element={<NosotrosPage />} />
+          <Route path="/productos" element={<ProductosPage />} />
+          <Route path="/proceso" element={<ProcesoPage />} />
+          <Route path="/clientes" element={<ClientesPage />} />
+          <Route path="/contacto" element={<ContactoPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

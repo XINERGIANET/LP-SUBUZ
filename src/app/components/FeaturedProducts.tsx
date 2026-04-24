@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 import { Droplet, Snowflake, CheckCircle, Star, Award } from 'lucide-react';
-import hieloGourmet from '../../imports/image-8.png';
-import aguaBidon from '../../imports/image-21.png';
+import productoPrincipal from '../../imports/image-7.png';
 
 const features = [
   { icon: CheckCircle, text: '100% Certificado' },
@@ -33,7 +32,7 @@ export function FeaturedProducts() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] mb-4 md:mb-6 px-4"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            Nuestra <span className="text-transparent bg-gradient-to-r from-[#0066FF] to-[#3385FF] bg-clip-text">Selección</span>
+            Nuestra <span className="text-[#0066FF]">Selección</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -150,9 +149,9 @@ export function FeaturedProducts() {
                   className="relative w-full h-full flex items-center justify-center"
                 >
                   <img
-                    src={hieloGourmet}
+                    src={productoPrincipal}
                     alt="SUBUZ Hielo Gourmet 1.5kg"
-                    className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                    className="max-w-full max-h-full object-contain object-left drop-shadow-2xl"
                   />
                 </motion.div>
 
@@ -214,7 +213,7 @@ export function FeaturedProducts() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-[#0066FF] to-[#3385FF] rounded-3xl p-8 md:p-12"
+          className="bg-[#0066FF] rounded-3xl p-8 md:p-12"
         >
           <div className="grid md:grid-cols-3 gap-8 text-center">
             {features.map((feature, index) => (

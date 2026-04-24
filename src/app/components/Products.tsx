@@ -3,8 +3,6 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import subuzProducts from '../../imports/image-7.png';
-import hieloGourmet from '../../imports/image-8.png';
-import aguaBidon from '../../imports/image-9.png';
 
 const iceProducts = [
   {
@@ -13,15 +11,15 @@ const iceProducts = [
     features: ['100% Filtrado', 'Transparencia total', 'Ideal para cócteles'],
     badge: 'Más Popular',
     badgeColor: 'bg-[#0066FF]',
-    image: hieloGourmet,
+    image: subuzProducts,
   },
   {
     name: 'Hielo en Cubo',
     subtitle: 'Para bebidas premium',
     features: ['Cubos perfectos', 'Larga duración', 'Sin sabor residual'],
     badge: 'Premium',
-    badgeColor: 'bg-gradient-to-r from-[#0066FF] to-[#3385FF]',
-    image: hieloGourmet,
+    badgeColor: 'bg-[#0066FF]',
+    image: subuzProducts,
   },
   {
     name: 'Hielo Triturado',
@@ -29,7 +27,7 @@ const iceProducts = [
     features: ['Triturado fino', 'Enfriamiento rápido', 'Para smoothies'],
     badge: 'Nuevo',
     badgeColor: 'bg-[#25D366]',
-    image: hieloGourmet,
+    image: subuzProducts,
   },
 ];
 
@@ -39,7 +37,7 @@ const waterProducts = [
     subtitle: 'Agua purificada premium',
     features: ['Ozonizada', '7 niveles de filtración', 'pH balanceado'],
     size: '20L',
-    image: aguaBidon,
+    image: subuzProducts,
   },
   {
     name: 'Con Dispensador',
@@ -47,7 +45,7 @@ const waterProducts = [
     features: ['Dispensador incluido', 'Fácil uso', 'Dispensador gratis'],
     size: '20L',
     badge: 'Oferta',
-    image: aguaBidon,
+    image: subuzProducts,
   },
   {
     name: 'Para Negocios',
@@ -55,7 +53,7 @@ const waterProducts = [
     features: ['Volumen mayorista', 'Servicio prioritario', 'Facturación'],
     size: '20L',
     badge: 'Empresas',
-    image: aguaBidon,
+    image: subuzProducts,
   },
 ];
 
@@ -94,7 +92,9 @@ function ProductCard({ product, index, isWater = false }: any) {
           <img
             src={product.image}
             alt={product.name}
-            className="max-w-full max-h-full object-contain"
+            className={`max-w-full max-h-full object-contain ${
+              isWater ? 'object-right' : 'object-left'
+            }`}
           />
         </motion.div>
         
@@ -178,7 +178,7 @@ export function Products() {
             className="text-5xl md:text-7xl font-black text-[#1A1A1A] mb-6"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            Nuestros <span className="text-transparent bg-gradient-to-r from-[#0066FF] to-[#3385FF] bg-clip-text">Productos</span>
+            Nuestros <span className="text-[#0066FF]">Productos</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -199,7 +199,7 @@ export function Products() {
             viewport={{ once: true }}
             className="flex items-center gap-3 mb-8"
           >
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#3385FF] flex items-center justify-center shadow-lg">
+            <div className="w-14 h-14 rounded-2xl bg-[#0066FF] flex items-center justify-center shadow-lg">
               <Snowflake className="text-white" size={28} />
             </div>
             <h3 className="text-4xl font-black text-[#1A1A1A]">Hielo <span className="text-[#0066FF]">Gourmet</span></h3>
@@ -228,7 +228,7 @@ export function Products() {
             viewport={{ once: true }}
             className="flex items-center gap-3 mb-8"
           >
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#3385FF] flex items-center justify-center shadow-lg">
+            <div className="w-14 h-14 rounded-2xl bg-[#0066FF] flex items-center justify-center shadow-lg">
               <Droplet className="text-white" size={28} />
             </div>
             <h3 className="text-4xl font-black text-[#1A1A1A]">Agua <span className="text-[#0066FF]">Purificada</span></h3>

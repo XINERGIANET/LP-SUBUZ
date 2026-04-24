@@ -84,7 +84,7 @@ export function ProductShowcase() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6, type: "spring" }}
-              className="absolute -bottom-6 -left-6 bg-gradient-to-br from-[#0066FF] to-[#3385FF] px-6 py-4 rounded-2xl shadow-2xl"
+              className="absolute -bottom-6 -left-6 bg-[#0066FF] px-6 py-4 rounded-2xl shadow-2xl"
             >
               <div className="text-center">
                 <div className="text-2xl font-black text-white">20L + 1.5kg</div>
@@ -127,7 +127,7 @@ export function ProductShowcase() {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="bg-white p-6 rounded-2xl shadow-lg border-2 border-[#0066FF]/10 hover:border-[#0066FF]/30 transition-all"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-[#0066FF] to-[#3385FF] rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                <div className="w-12 h-12 bg-[#0066FF] rounded-xl flex items-center justify-center mb-4 shadow-lg">
                   <Droplet className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl font-black text-[#1A1A1A] mb-2">Agua Premium</h3>
@@ -144,7 +144,7 @@ export function ProductShowcase() {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="bg-white p-6 rounded-2xl shadow-lg border-2 border-[#0066FF]/10 hover:border-[#0066FF]/30 transition-all"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-[#0066FF] to-[#3385FF] rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                <div className="w-12 h-12 bg-[#0066FF] rounded-xl flex items-center justify-center mb-4 shadow-lg">
                   <Snowflake className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl font-black text-[#1A1A1A] mb-2">Hielo Gourmet</h3>

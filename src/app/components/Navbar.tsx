@@ -1,6 +1,7 @@
 import { Phone, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link, NavLink } from 'react-router';
 import subuzLogo from '../../imports/image-17.png';
 import { Magnetic } from './ui/Magnetic';
 
@@ -10,7 +11,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 6);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -18,131 +19,136 @@ export function Navbar() {
   }, []);
 
   const navItems = [
-    { label: 'Inicio', href: '#inicio' },
-    { label: 'Nosotros', href: '#nosotros' },
-    { label: 'Proceso', href: '#proceso' },
-    { label: 'Productos', href: '#productos' },
-    { label: 'Contacto', href: '#contacto' },
+    { label: 'Inicio', to: '/' },
+    { label: '¿Quiénes Somos?', to: '/nosotros' },
+    { label: 'Productos', to: '/productos' },
+    { label: '¿Cómo trabajamos?', to: '/proceso' },
+    { label: 'Clientes', to: '/clientes' },
   ];
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      transition={{ duration: 0.45 }}
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-slate-200/80 transition-shadow duration-300 ${
         isScrolled
-          ? 'glass shadow-elegant-lg py-2 md:py-3'
-          : 'bg-transparent py-4 md:py-6'
+          ? 'bg-white/90 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-md'
+          : 'bg-white/80 backdrop-blur-sm'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <motion.a
-            href="#inicio"
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center"
-          >
-            <Magnetic strength={0.2}>
-              <img
-                src={subuzLogo}
-                alt="SUBUZ - Agua de Mesa y Hielo"
-                className="h-8 md:h-12 lg:h-14 w-auto"
-              />
-            </Magnetic>
-          </motion.a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={index}
-                href={item.href}
-                whileHover={{ y: -2 }}
-                className="text-[#1A1A1A] hover:text-[#0066FF] font-bold transition-colors relative group"
-              >
-                {item.label}
-                <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#0066FF] scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <motion.div whileHover={{ scale: 1.02 }} className="flex items-center">
+            <Link to="/" className="flex items-center">
+              <Magnetic strength={0.12}>
+                <img
+                  src={subuzLogo}
+                  alt="SUBUZ - Agua de Mesa y Hielo"
+                  className="h-7 w-auto md:h-9"
                 />
-              </motion.a>
+              </Magnetic>
+            </Link>
+          </motion.div>
+
+          <div className="hidden items-center gap-1 md:flex">
+            {navItems.map((item, index) => (
+              <NavLink
+                key={index}
+                to={item.to}
+                end={item.to === '/'}
+                className={({ isActive }) =>
+                  `group relative rounded-lg px-2.5 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'text-[#0066FF]'
+                      : 'text-slate-700 hover:text-slate-900'
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    {item.label}
+                    <span
+                      className={`absolute bottom-1 left-2.5 right-2.5 h-0.5 rounded-full bg-[#0066FF] transition-transform duration-200 ${
+                        isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                      }`}
+                    />
+                  </>
+                )}
+              </NavLink>
             ))}
           </div>
 
-          {/* Contact Info */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden items-center gap-2.5 lg:flex">
             <Magnetic>
               <motion.a
                 href="tel:920488526"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-5 py-2 border-2 border-[#0066FF] text-[#0066FF] rounded-full font-bold hover:bg-[#0066FF]/10 transition-all"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex h-9 items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 text-sm font-medium text-slate-800 shadow-sm transition hover:border-slate-300"
               >
-                <Phone size={18} />
+                <Phone className="h-3.5 w-3.5 text-[#0066FF]" strokeWidth={2} />
                 <span className="hidden xl:inline">920 488 526</span>
               </motion.a>
             </Magnetic>
-            <Magnetic>
-              <motion.a
-                href="#contacto"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-5 py-2 bg-[#0066FF] text-white rounded-full font-bold shadow-lg hover:bg-[#0052CC] transition-all"
-              >
-                Contáctanos
-              </motion.a>
-            </Magnetic>
+            <Link to="/contacto" className="inline-flex h-9 items-center justify-center rounded-full bg-[#0066FF] px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0052CC]">
+              Contáctanos
+            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <motion.button
-            whileTap={{ scale: 0.9 }}
+            type="button"
+            whileTap={{ scale: 0.95 }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-[#0066FF]"
+            className="rounded-lg p-2 text-slate-800 md:hidden"
+            aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </motion.button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t-2 border-[#0066FF]/10 overflow-hidden"
+            className="border-t border-slate-200/90 bg-white md:hidden"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="space-y-0.5 px-4 py-4">
               {navItems.map((item, index) => (
-                <motion.a
+                <NavLink
                   key={index}
-                  href={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  to={item.to}
+                  end={item.to === '/'}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-[#1A1A1A] hover:text-[#0066FF] font-bold py-2 border-b border-gray-100 transition-colors"
+                  className={({ isActive }) =>
+                    `block rounded-lg px-3 py-2.5 text-sm font-medium ${
+                      isActive
+                        ? 'bg-slate-50 text-[#0066FF]'
+                        : 'text-slate-800 hover:bg-slate-50'
+                    }`
+                  }
                 >
                   {item.label}
-                </motion.a>
+                </NavLink>
               ))}
-              <div className="pt-4 space-y-3">
+              <div className="mt-3 space-y-2 border-t border-slate-200 pt-3">
                 <a
                   href="tel:920488526"
-                  className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#0066FF] text-[#0066FF] rounded-full font-bold"
+                  className="flex h-10 items-center justify-center gap-2 rounded-full border border-slate-200 text-sm font-semibold text-slate-900"
                 >
-                  <Phone size={18} />
+                  <Phone className="h-4 w-4 text-[#0066FF]" />
                   920 488 526
                 </a>
-                <a
-                  href="#contacto"
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-[#0066FF] text-white rounded-full font-bold shadow-lg"
+                <Link
+                  to="/contacto"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex h-10 items-center justify-center rounded-full bg-[#0066FF] text-sm font-semibold text-white"
                 >
                   Contáctanos
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

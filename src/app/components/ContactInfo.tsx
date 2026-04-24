@@ -24,7 +24,7 @@ const contactDetails = [
 
 export function ContactInfo() {
   return (
-    <section id="contacto" className="py-16 md:py-24 relative overflow-hidden">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-white">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -92,11 +92,7 @@ export function ContactInfo() {
           transition={{ delay: 0.4 }}
           className="mt-16 max-w-4xl mx-auto"
         >
-          <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#0066FF] to-[#3385FF] p-8 md:p-12 shadow-2xl">
-            {/* Decorative circles */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
-
+          <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-[#0066FF] p-8 md:p-12 shadow-2xl">
             <div className="relative z-10 text-center space-y-4">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white">
                 #MásGourmet

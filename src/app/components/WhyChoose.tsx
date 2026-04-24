@@ -98,7 +98,7 @@ export function WhyChoose() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
-          className="bg-gradient-to-r from-[#0066FF] to-[#3385FF] rounded-3xl p-12 text-center relative overflow-hidden shadow-2xl"
+          className="bg-[#0066FF] rounded-3xl p-12 text-center relative overflow-hidden shadow-2xl"
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">

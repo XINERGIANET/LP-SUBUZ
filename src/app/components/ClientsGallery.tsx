@@ -108,7 +108,7 @@ export function ClientsGallery() {
             href="https://www.instagram.com/subuz_agua_y_hielo/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#0066FF] to-[#3385FF] text-white rounded-full font-bold text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 bg-[#0066FF] text-white rounded-full font-bold text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
             <Instagram size={20} className="md:w-6 md:h-6" />
             Síguenos en Instagram

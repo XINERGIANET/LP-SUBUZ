@@ -59,6 +59,13 @@ body {
   color: #1A1A1A;
   font-family: var(--font-body);
   letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(0, 102, 255, 0.12);
+  color: #1A1A1A;
 }
 
 /* Professional Typography Styles */
@@ -125,10 +132,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #0066FF, #3385FF);
+  background: #0066FF;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #0052CC, #0066FF);
+  background: #0052CC;
+}
+
+/* Contenedor y superficies (look “pro” coherente) */
+.subuz-page {
+  --subuz-radius: 1rem;
+}
+
+.subuz-card {
+  border-radius: var(--subuz-radius);
+  box-shadow:
+    0 1px 0 rgba(15, 23, 42, 0.04),
+    0 12px 40px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: #ffffff;
+}
+
+.subuz-card-muted {
+  border-radius: var(--subuz-radius);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: #f8fafc;
 }
