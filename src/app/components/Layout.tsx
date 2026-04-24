@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { ScrollToTop } from './ScrollToTop';
+import { FloatingServiciosPromo } from './FloatingServiciosPromo';
 
 export function Layout() {
   const { pathname } = useLocation();
@@ -18,6 +19,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <FloatingServiciosPromo />
       <ScrollToTop />
     </div>
   );
