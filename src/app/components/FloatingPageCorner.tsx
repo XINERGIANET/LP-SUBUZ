@@ -139,7 +139,7 @@ export function FloatingPageCorner() {
           transition: { type: 'spring', stiffness: 400, damping: 12 },
         }}
         whileTap={{ scale: 0.94 }}
-        className="pointer-events-auto fixed bottom-32 left-3 z-[56] sm:bottom-36 sm:left-4"
+        className="pointer-events-auto fixed bottom-16 left-3 z-[56] sm:bottom-20 sm:left-4"
       >
         <div className="relative flex h-[3.65rem] w-[3.65rem] items-center justify-center sm:h-16 sm:w-16">
           <motion.span
