@@ -6,12 +6,14 @@ import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { CtaColorStrip } from '../components/CtaColorStrip';
 import { SubuzFaqSection } from '../components/SubuzFaqSection';
 import { subuzFaqItems } from '../data/subuzFaq';
-import plantaProceso from '../../imports/proceso-planta.jpg';
-import subuzDispenser from '../../imports/image-19.png';
-import bannerHome from '../../imports/banner-home.jpg';
-import imageProductosHielo from '../../imports/image-7.png';
-import hieloClasicoFoto from '../../imports/hielo-clasico.jpg';
-import entrega from '../../imports/entrega-domicilio.png';
+import { assetUrl } from '../lib/assets';
+
+const plantaProceso = assetUrl('proceso-planta.png');
+const subuzDispenser = assetUrl('image-19.png');
+const bannerHome = assetUrl('banner-home.png');
+const imageProductosHielo = assetUrl('image-7.png');
+const hieloClasicoFoto = assetUrl('hielo-clasico.jpg');
+const entrega = assetUrl('entrega-domicilio.png');
 
 const principios = [
   {

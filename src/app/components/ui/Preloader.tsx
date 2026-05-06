@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useEffect, useState } from 'react';
-import subuzLogo from '../../../imports/image-17.png';
+import { assetUrl } from '../../lib/assets';
+
+const subuzLogo = assetUrl('image-17.png');
 
 interface PreloaderProps {
   onLoadingComplete?: () => void;

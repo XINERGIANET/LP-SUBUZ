@@ -3,9 +3,11 @@ import { FullBleedSlide } from '../components/FullBleedSlide';
 import { SectionSlide } from '../components/SectionSlide';
 import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { CtaColorStrip } from '../components/CtaColorStrip';
-import subuzDispenser from '../../imports/image-19.png';
-import bannerClientes from '../../imports/banner-clientes.jpg';
-import entrega from '../../imports/entrega-domicilio.png';
+import { assetUrl } from '../lib/assets';
+
+const subuzDispenser = assetUrl('image-19.png');
+const bannerClientes = assetUrl('banner-clientes.jpg');
+const entrega = assetUrl('entrega-domicilio.png');
 
 const tipos = [
   {

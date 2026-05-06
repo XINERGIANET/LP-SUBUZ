@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import path from 'path'
+import fs from 'fs'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
@@ -16,9 +17,33 @@ function figmaAssetResolver() {
   }
 }
 
+function distAssetServer() {
+  const distAssetsDir = path.resolve(__dirname, 'dist/assets')
+
+  return {
+    name: 'dist-asset-server',
+    configureServer(server) {
+      server.middlewares.use('/assets', (req, res, next) => {
+        const urlPath = req.url?.split('?')[0] || ''
+        const filename = decodeURIComponent(urlPath.replace(/^\/+/, ''))
+        const filePath = path.resolve(distAssetsDir, filename)
+
+        if (!filePath.startsWith(distAssetsDir + path.sep) || !fs.existsSync(filePath)) {
+          next()
+          return
+        }
+
+        res.setHeader('Cache-Control', 'no-store')
+        fs.createReadStream(filePath).pipe(res)
+      })
+    },
+  }
+}
+
 export default defineConfig({
   plugins: [
     figmaAssetResolver(),
+    distAssetServer(),
     // The React and Tailwind plugins are both required for Make, even if
     // Tailwind is not being actively used – do not remove them
     react(),
@@ -28,6 +53,17 @@ export default defineConfig({
     alias: {
       // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
+    },
+  },
+
+  build: {
+    emptyOutDir: false,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name][extname]',
+      },
     },
   },
 

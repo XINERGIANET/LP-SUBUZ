@@ -1,8 +1,10 @@
 import { motion } from 'motion/react';
 import { Play, X } from 'lucide-react';
 import { useState, useRef } from 'react';
-import subuzVideo from '../../imports/subuz-video.mp4';
-import subuzThumbnail from '../../imports/image-19.png';
+import { assetUrl } from '../lib/assets';
+
+const subuzVideo = assetUrl('subuz-video.mp4');
+const subuzThumbnail = assetUrl('image-19.png');
 
 export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false);

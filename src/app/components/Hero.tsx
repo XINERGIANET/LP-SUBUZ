@@ -1,9 +1,11 @@
 import { ArrowDown, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
-import subuzProducts from '../../imports/image-15.png';
 import { WordReveal } from './ui/WordReveal';
 import { Magnetic } from './ui/Magnetic';
+import { assetUrl } from '../lib/assets';
+
+const subuzProducts = assetUrl('image-15.png');
 
 export function Hero() {
   return (

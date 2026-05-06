@@ -5,10 +5,12 @@ import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { SectionSlide } from '../components/SectionSlide';
 import { SectionAnchorBar } from '../components/SectionAnchorBar';
 import { CtaColorStrip } from '../components/CtaColorStrip';
-import bannerServicios from '../../imports/banner-servicios.png';
-import imgComoFunciona from '../../imports/servicio-como-funciona.png';
-import imgDispensador from '../../imports/servicio-dispensador.png';
-import imgCongeladora from '../../imports/servicio-congeladora.png';
+import { assetUrl } from '../lib/assets';
+
+const bannerServicios = assetUrl('banner-servicios.png');
+const imgComoFunciona = assetUrl('servicio-como-funciona.png');
+const imgDispensador = assetUrl('servicio-dispensador.png');
+const imgCongeladora = assetUrl('servicio-congeladora.png');
 
 const anchorLinks = [
   { id: 'como-funciona', label: 'Cómo funciona' },

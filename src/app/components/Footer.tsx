@@ -1,7 +1,9 @@
 import { MessageCircle, Phone, MapPin, Instagram } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
-import subuzLogo from '../../imports/image-17.png';
+import { assetUrl } from '../lib/assets';
+
+const subuzLogo = assetUrl('image-17.png');
 
 export function Footer() {
   const currentYear = new Date().getFullYear();

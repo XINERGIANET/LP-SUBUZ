@@ -1,6 +1,9 @@
 import { motion } from 'motion/react';
 import { Droplet, Snowflake, CheckCircle, Star, Award } from 'lucide-react';
-import productoPrincipal from '../../imports/image-7.png';
+import { assetUrl } from '../lib/assets';
+
+const productoPrincipal = assetUrl('image-7.png');
+const aguaBidon = assetUrl('image-20.png');
 
 const features = [
   { icon: CheckCircle, text: '100% Certificado' },

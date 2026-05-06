@@ -4,7 +4,9 @@ import { FullBleedSlide } from '../components/FullBleedSlide';
 import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { SubuzFaqSection } from '../components/SubuzFaqSection';
 import { subuzFaqItems } from '../data/subuzFaq';
-import bannerContacto from '../../imports/banner-contacto.jpg';
+import { assetUrl } from '../lib/assets';
+
+const bannerContacto = assetUrl('banner-contacto.jpg');
 
 const detalles = [
   {

@@ -2,7 +2,9 @@ import { Check, Sparkles, Snowflake, Droplet } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import subuzProducts from '../../imports/image-7.png';
+import { assetUrl } from '../lib/assets';
+
+const subuzProducts = assetUrl('image-7.png');
 
 const iceProducts = [
   {

@@ -2,8 +2,10 @@ import { Phone, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, NavLink } from 'react-router';
-import subuzLogo from '../../imports/image-17.png';
 import { Magnetic } from './ui/Magnetic';
+import { assetUrl } from '../lib/assets';
+
+const subuzLogo = assetUrl('image-17.png');
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

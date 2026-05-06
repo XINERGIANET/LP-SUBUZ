@@ -4,9 +4,11 @@ import { FullBleedSlide } from '../components/FullBleedSlide';
 import { SectionSlide } from '../components/SectionSlide';
 import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { CtaColorStrip } from '../components/CtaColorStrip';
-import subuzProductos from '../../imports/image-7.png';
-import subuzEsencia from '../../imports/image-19.png';
-import bannerNosotros from '../../imports/banner-nosotros.jpg';
+import { assetUrl } from '../lib/assets';
+
+const subuzProductos = assetUrl('image-7.png');
+const subuzEsencia = assetUrl('image-19.png');
+const bannerNosotros = assetUrl('banner-nosotros.png');
 
 const valores = [
   {

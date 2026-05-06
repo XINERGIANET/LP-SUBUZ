@@ -1,5 +1,7 @@
 import { motion } from 'motion/react';
-import aguaBidon from '../../imports/image-20.png';
+import { assetUrl } from '../lib/assets';
+
+const aguaBidon = assetUrl('image-20.png');
 
 const timeline = [
   {

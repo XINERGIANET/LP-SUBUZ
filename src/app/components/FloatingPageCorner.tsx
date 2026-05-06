@@ -2,7 +2,9 @@ import React, { useState, useEffect, type MouseEvent } from 'react';
 import { Link, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
-import repartidorMedio from '../../imports/repartidor-subuz-medio.png';
+import { assetUrl } from '../lib/assets';
+
+const repartidorMedio = assetUrl('repartidor-subuz-medio.png');
 
 const STORAGE_SERVICIOS = 'subuz-float-servicios-dismissed-at';
 const SHOW_AGAIN_MS = 7 * 24 * 60 * 60 * 1000;

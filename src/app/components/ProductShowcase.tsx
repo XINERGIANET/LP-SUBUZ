@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { Droplet, Snowflake, CheckCircle, Sparkles } from 'lucide-react';
-import subuzProducts from '../../imports/image-7.png';
+import { assetUrl } from '../lib/assets';
+
+const subuzProducts = assetUrl('image-7.png');
 
 export function ProductShowcase() {
   return (

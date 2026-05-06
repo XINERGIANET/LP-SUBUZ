@@ -5,11 +5,13 @@ import { FullBleedSlide } from '../components/FullBleedSlide';
 import { SectionSlide } from '../components/SectionSlide';
 import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { CtaColorStrip } from '../components/CtaColorStrip';
-import plantaProceso from '../../imports/proceso-planta.jpg';
-import bidonAltaRes from '../../imports/image-7.png';
-import subuzVideo from '../../imports/subuz-video.mp4';
-import subuzThumbnail from '../../imports/image-19.png';
-import bannerProceso from '../../imports/banner-proceso.jpg';
+import { assetUrl } from '../lib/assets';
+
+const plantaProceso = assetUrl('proceso-planta.png');
+const bidonAltaRes = assetUrl('image-7.png');
+const subuzVideo = assetUrl('subuz-video.mp4');
+const subuzThumbnail = assetUrl('image-19.png');
+const bannerProceso = assetUrl('banner-proceso.jpg');
 
 const pasos = [
   {

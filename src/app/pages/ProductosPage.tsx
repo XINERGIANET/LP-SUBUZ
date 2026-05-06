@@ -3,9 +3,13 @@ import { FullBleedSlide } from '../components/FullBleedSlide';
 import { SectionSlide } from '../components/SectionSlide';
 import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { CtaColorStrip } from '../components/CtaColorStrip';
-import fotoProductoAlta from '../../imports/image-7.png';
-import hieloClasico from '../../imports/hielo-clasico.jpg';
-import bannerProductos from '../../imports/banner-productos.jpg';
+import { assetUrl } from '../lib/assets';
+
+const fotoProductoAlta = assetUrl('image-7.png');
+const fotoProductoAltahielo = assetUrl('image-20.png');
+
+const hieloClasico = assetUrl('hielo-clasico.jpg');
+const bannerProductos = assetUrl('banner-productos.png');
 
 export function ProductosPage() {
   return (
@@ -93,7 +97,7 @@ export function ProductosPage() {
           'No altera el sabor',
           'Coctelería y alta cocina',
         ]}
-        image={fotoProductoAlta}
+        image={fotoProductoAltahielo}
         imageObjectPositionClass="object-[42%_42%] md:object-[24%_44%] lg:object-[22%_42%]"
         imageAlt="Bolsa de hielo gourmet SUBUZ 1,5 kg"
         textSide="right"
