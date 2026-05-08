@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Droplets, Eye, PackageCheck, Snowflake, Star, Target, Truck, Users } from 'lucide-react';
 import { assetUrl } from '../lib/assets';
 
 const aguaBidon = assetUrl('image-20.png');

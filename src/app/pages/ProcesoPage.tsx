@@ -7,7 +7,7 @@ import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { CtaColorStrip } from '../components/CtaColorStrip';
 import { assetUrl } from '../lib/assets';
 
-const plantaProceso = assetUrl('proceso-planta.png');
+const plantaProceso = assetUrl('proceso-planta.jpg');
 const bidonAltaRes = assetUrl('image-7.png');
 const subuzVideo = assetUrl('subuz-video.mp4');
 const subuzThumbnail = assetUrl('image-19.png');

@@ -8,7 +8,7 @@ import { SubuzFaqSection } from '../components/SubuzFaqSection';
 import { subuzFaqItems } from '../data/subuzFaq';
 import { assetUrl } from '../lib/assets';
 
-const plantaProceso = assetUrl('proceso-planta.png');
+const plantaProceso = assetUrl('proceso-planta.jpg');
 const subuzDispenser = assetUrl('image-19.png');
 const bannerHome = assetUrl('banner-home.png');
 const imageProductosHielo = assetUrl('image-7.png');

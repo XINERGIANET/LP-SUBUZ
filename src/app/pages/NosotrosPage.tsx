@@ -1,9 +1,8 @@
 import { About } from '../components/About';
 import { CtaColorStrip } from '../components/CtaColorStrip';
+import { FullBleedSlide } from '../components/FullBleedSlide';
 import { assetUrl } from '../lib/assets';
 
-const subuzProductos = assetUrl('image-7.png');
-const subuzEsencia = assetUrl('image-19.png');
 const bannerNosotros = assetUrl('banner-nosotros.png');
 
 export function NosotrosPage() {

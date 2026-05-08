@@ -26,6 +26,11 @@ function distAssetServer() {
       server.middlewares.use('/assets', (req, res, next) => {
         const urlPath = req.url?.split('?')[0] || ''
         const filename = decodeURIComponent(urlPath.replace(/^\/+/, ''))
+        if (!/\.(png|jpe?g|webp|gif|svg|mp4|webm)$/i.test(filename)) {
+          next()
+          return
+        }
+
         const filePath = path.resolve(distAssetsDir, filename)
 
         if (!filePath.startsWith(distAssetsDir + path.sep) || !fs.existsSync(filePath)) {
@@ -33,6 +38,21 @@ function distAssetServer() {
           return
         }
 
+        const ext = path.extname(filename).toLowerCase()
+        const contentTypes = {
+          '.png': 'image/png',
+          '.jpg': 'image/jpeg',
+          '.jpeg': 'image/jpeg',
+          '.webp': 'image/webp',
+          '.gif': 'image/gif',
+          '.svg': 'image/svg+xml',
+          '.mp4': 'video/mp4',
+          '.webm': 'video/webm',
+        }
+
+        if (contentTypes[ext]) {
+          res.setHeader('Content-Type', contentTypes[ext])
+        }
         res.setHeader('Cache-Control', 'no-store')
         fs.createReadStream(filePath).pipe(res)
       })
