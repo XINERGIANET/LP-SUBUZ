@@ -6,7 +6,7 @@ import { CtaColorStrip } from '../components/CtaColorStrip';
 import { assetUrl } from '../lib/assets';
 
 const fotoProductoAlta = assetUrl('image-7.png');
-const fotoProductoAltahielo = assetUrl('image-20.png');
+const fotoProductoAltahielo = assetUrl('image-20-old.png');
 
 const hieloClasico = assetUrl('hielo-clasico.jpg');
 const bannerProductos = assetUrl('banner-productos.png');

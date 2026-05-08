@@ -11,7 +11,7 @@ const plantaProceso = assetUrl('proceso-planta.jpg');
 const bidonAltaRes = assetUrl('image-7.png');
 const subuzVideo = assetUrl('subuz-video.mp4');
 const subuzThumbnail = assetUrl('image-19.png');
-const bannerProceso = assetUrl('banner-proceso.jpg');
+const bannerProceso = assetUrl('banner-proceso.png');
 
 const pasos = [
   {
