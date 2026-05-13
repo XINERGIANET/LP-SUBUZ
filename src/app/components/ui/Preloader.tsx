@@ -12,15 +12,56 @@ export function Preloader({ onLoadingComplete }: PreloaderProps) {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Simulamos un tiempo de carga para la animación
-    const timer = setTimeout(() => {
+    const criticalImages = [
+      subuzLogo,
+      assetUrl('proceso-planta.jpg'),
+      assetUrl('banner-nosotros.png'),
+      assetUrl('personaje.png')
+    ];
+
+    let imagesLoaded = 0;
+    const totalImages = criticalImages.length;
+
+    // Función para finalizar la carga
+    const finishLoading = () => {
       setIsVisible(false);
       if (onLoadingComplete) {
         onLoadingComplete();
       }
-    }, 2800); // 2.8 segundos de elegancia
+    };
 
-    return () => clearTimeout(timer);
+    // Pre-cargar imágenes críticas
+    criticalImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        imagesLoaded++;
+        if (imagesLoaded === totalImages && document.readyState === 'complete') {
+          // Pequeño delay para que la barra se vea completa
+          setTimeout(finishLoading, 500);
+        }
+      };
+      img.onerror = () => {
+        imagesLoaded++; // Contamos errores para no bloquear el sitio
+      };
+    });
+
+    // También escuchamos el evento load general del navegador
+    const handleLoad = () => {
+      if (imagesLoaded >= totalImages) {
+        setTimeout(finishLoading, 500);
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      // Si ya cargó pero faltan imágenes, esperamos al timeout de seguridad
+      setTimeout(() => {
+        if (isVisible) finishLoading();
+      }, 5000); 
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
   }, [onLoadingComplete]);
 
   return (
