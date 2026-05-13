@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 import { assetUrl } from '../lib/assets';
 
-const repartidorMedio = assetUrl('repartidor-subuz-medio.png');
+const repartidorMedio = assetUrl('personaje.png');
 
 const STORAGE_SERVICIOS = 'subuz-float-servicios-dismissed-at';
 const SHOW_AGAIN_MS = 7 * 24 * 60 * 60 * 1000;
@@ -30,6 +30,7 @@ function WhatsAppMark({ className }: { className?: string }) {
 export function FloatingPageCorner() {
   const { pathname } = useLocation();
   const [serviciosVisible, setServiciosVisible] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
 
   useEffect(() => {
     if (pathname === '/servicios') {
@@ -65,7 +66,72 @@ export function FloatingPageCorner() {
 
   return (
     <>
-      <div className="pointer-events-none fixed bottom-32 right-2 z-[56] sm:bottom-36 sm:right-4">
+      {/* Chat Modal WhatsApp */}
+      <AnimatePresence>
+        {chatOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 20, originX: 0, originY: 1 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            className="fixed bottom-32 left-4 z-[60] w-[19rem] overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-2xl sm:bottom-40 sm:left-6 sm:w-80"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between bg-[#25D366] p-4 text-white">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
+                  <WhatsAppMark className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="text-sm font-bold">SUBUZ</div>
+                  <div className="flex items-center gap-1 text-[10px] text-white/80">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse"></span>
+                    En línea ahora
+                  </div>
+                </div>
+              </div>
+              <button 
+                onClick={() => setChatOpen(false)}
+                className="rounded-full p-1 transition hover:bg-white/10"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="bg-[#e5ddd5] p-5 pb-8 relative">
+              <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")' }}></div>
+              <motion.div 
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                className="relative rounded-2xl rounded-tl-none bg-white p-3 text-sm text-slate-800 shadow-sm"
+              >
+                <p className="font-medium">¡Hola! 👋 Bienvenido a SUBUZ.</p>
+                <p className="mt-1">¿En qué podemos ayudarte hoy? Escríbenos y te atenderemos de inmediato.</p>
+                <span className="mt-1 block text-[10px] text-slate-400 text-right">
+                  {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                </span>
+              </motion.div>
+            </div>
+
+            {/* Footer / CTA */}
+            <div className="border-t border-slate-100 bg-white p-4">
+              <a
+                href={WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setChatOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3 text-sm font-bold text-white transition hover:bg-[#20ba5a] active:scale-95"
+              >
+                Iniciar chat por WhatsApp
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Personaje Flotante (Derecha) */}
+      <div className="pointer-events-none fixed bottom-20 right-2 z-[56] sm:bottom-24 sm:right-4">
         <AnimatePresence>
           {serviciosVisible && pathname !== '/servicios' && (
             <motion.div
@@ -122,78 +188,26 @@ export function FloatingPageCorner() {
         </AnimatePresence>
       </div>
 
-      <motion.a
-        href={WHATSAPP_HREF}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Escribir por WhatsApp a SUBUZ"
-        initial={{ x: -88, opacity: 0, rotate: -12 }}
-        animate={{ x: 0, opacity: 1, rotate: 0 }}
-        transition={{
-          type: 'spring',
-          stiffness: 260,
-          damping: 18,
-          delay: 0.2,
-        }}
-        whileHover={{
-          scale: 1.08,
-          rotate: 2,
-          transition: { type: 'spring', stiffness: 400, damping: 12 },
-        }}
-        whileTap={{ scale: 0.94 }}
+      {/* Botón Flotante WhatsApp (Izquierda) */}
+      <button
+        onClick={() => setChatOpen(!chatOpen)}
+        aria-label="Abrir chat de WhatsApp"
         className="pointer-events-auto fixed bottom-16 left-3 z-[56] sm:bottom-20 sm:left-4"
       >
-        <div className="relative flex h-[3.65rem] w-[3.65rem] items-center justify-center sm:h-16 sm:w-16">
+        <motion.div 
+          className="relative flex h-[3.65rem] w-[3.65rem] items-center justify-center sm:h-16 sm:w-16"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.94 }}
+        >
           <motion.span
-            className="absolute inset-0 rounded-full bg-[#25D366]"
-            animate={{
-              scale: [1, 1.22, 1],
-              opacity: [0.55, 0, 0.55],
-            }}
-            transition={{
-              duration: 2.4,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-          <motion.span
-            className="absolute inset-0 rounded-full bg-[#25D366]"
-            animate={{
-              scale: [1, 1.12, 1],
-              opacity: [0.35, 0.12, 0.35],
-            }}
-            transition={{
-              duration: 2.4,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 0.35,
-            }}
-          />
-          <motion.span
-            className="relative flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-[#2fe066] via-[#25D366] to-[#128C7E] text-white shadow-[0_12px_36px_rgba(18,140,126,0.45)] ring-[3px] ring-white/95"
-            animate={{ y: [0, -4, 0] }}
-            transition={{
-              duration: 2.8,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            className="relative flex h-full w-full items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-colors hover:bg-[#20ba5a]"
           >
-            <motion.span
-              className="flex h-[62%] w-[62%] items-center justify-center text-white drop-shadow-sm"
-              animate={{
-                scale: [1, 1.06, 1],
-              }}
-              transition={{
-                duration: 2.2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            >
+            <span className="flex h-[60%] w-[60%] items-center justify-center text-white">
               <WhatsAppMark className="h-full w-full" />
-            </motion.span>
+            </span>
           </motion.span>
-        </div>
-      </motion.a>
+        </motion.div>
+      </button>
     </>
   );
 }

@@ -20,7 +20,7 @@ export function ProductosPage() {
         title="Nuestros productos"
         titleAccent="agua e hielo"
         description={[
-          'Producimos en Chiclayo agua de mesa e hielo para consumo humano, con estándares sanitarios y planta bajo registro.',
+          'Agua de mesa ozonizada y osmotizada, y hielo premium para hogares, empresas y eventos.',
           'Cada línea responde a un uso: hogar y oficina, hielo cotidiano o hielo premium para bares y restaurantes.',
         ]}
         image={bannerProductos}

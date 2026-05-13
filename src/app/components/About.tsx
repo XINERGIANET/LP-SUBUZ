@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { Droplets, Eye, PackageCheck, Snowflake, Star, Target, Truck, Users } from 'lucide-react';
 import { assetUrl } from '../lib/assets';
 
-const aguaBidon = assetUrl('image-20.png');
+const aboutImage = assetUrl('hielo.png');
 
 const procesos = [
   {
@@ -62,25 +62,15 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="relative group h-full flex flex-col"
           >
-            <div className="relative rounded-3xl overflow-hidden bg-[#F5F8FA] p-8 border-2 border-[#0066FF]/10 shadow-xl flex items-center justify-center min-h-[450px] flex-1">
+            <div className="relative overflow-hidden flex items-center justify-center min-h-[450px] flex-1">
               <img
-                src={aguaBidon}
-                alt="SUBUZ Agua Purificada 20L"
-                className="w-auto max-h-96 object-contain"
+                src={aboutImage}
+                alt="SUBUZ Hielo Purificado"
+                className="w-full h-full object-contain"
               />
             </div>
             
-            {/* Floating badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="absolute -bottom-6 -right-2 md:-right-6 bg-white px-6 md:px-8 py-4 md:py-6 rounded-2xl shadow-xl border-2 border-[#0066FF]/10 z-20"
-            >
-              <div className="text-xl md:text-3xl font-black text-[#0066FF]">Resultados</div>
-              <div className="text-sm md:text-base text-[#666666] font-bold">Visibles</div>
-            </motion.div>
+
           </motion.div>
 
           {/* Right - Content */}
@@ -115,8 +105,8 @@ export function About() {
                 <h4 className="text-xl font-black text-[#1A1A1A] mb-2 flex items-center gap-3">
                   <Target className="w-6 h-6 text-[#0066FF]" /> Nuestra Misión
                 </h4>
-                <p className="text-[#666666] leading-relaxed">
-                  Ofrecer productos de calidad constante, con un servicio eficiente que impulse a nuestros clientes a seguir creciendo.
+                <p className="text-[#666666] leading-relaxed text-lg">
+                  Nuestra misión es simple: ofrecer productos de calidad constante, con un servicio eficiente que impulse a nuestros clientes a seguir creciendo. Creemos en hacer las cosas bien desde la raíz. Sin excusas. Sin atajos.
                 </p>
               </motion.div>
 

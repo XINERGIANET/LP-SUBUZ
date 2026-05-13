@@ -23,7 +23,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-3 py-2 bg-white border-2 border-[#0066FF]/30 rounded-full text-[#0066FF] text-xs sm:text-sm font-bold shadow-lg"
             >
               <Sparkles size={16} />
-              ¡Tu Mejor Compañía desde 2022!
+              ¡Tu Mejor Compañía desde 2021!
             </motion.div>
  
             {/* Main Heading */}
@@ -75,7 +75,7 @@ export function Hero() {
               className="flex flex-col gap-4 pt-4"
             >
               <div className="text-base md:text-lg text-[#666666] leading-relaxed max-w-2xl">
-                Desde 2022, nos dedicamos a ofrecer agua y hielo de la más alta calidad,
+                Desde 2021, nos dedicamos a ofrecer agua y hielo de la más alta calidad,
                 con procesos certificados y un compromiso genuino con nuestros clientes.
               </div>
             </motion.div>

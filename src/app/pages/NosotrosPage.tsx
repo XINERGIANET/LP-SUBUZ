@@ -3,14 +3,14 @@ import { CtaColorStrip } from '../components/CtaColorStrip';
 import { FullBleedSlide } from '../components/FullBleedSlide';
 import { assetUrl } from '../lib/assets';
 
-const bannerNosotros = assetUrl('banner-nosotros.png');
+const bannerNosotros = assetUrl('banner-home.png');
 
 export function NosotrosPage() {
   return (
     <>
       <FullBleedSlide
         headingLevel="h1"
-        eyebrow="Empresa"
+
         title="¿Quiénes somos?"
         titleAccent="SUBUZ"
         description={[
@@ -27,8 +27,9 @@ export function NosotrosPage() {
       <About />
 
       <CtaColorStrip
-        title="¿Quiere conocer planta o equipo?"
-        body="Coordine visita o llamada: le explicamos proceso y registro con la misma claridad que al cliente de la barra."
+        title="¿Quieres conocer nuestra forma de trabajo?"
+        body="Coordinemos una visita y descubre cómo trabajamos junto a negocios, empresas y eventos"
+        ctaLabel="Contáctanos"
       />
     </>
   );

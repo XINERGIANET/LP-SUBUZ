@@ -35,141 +35,108 @@ export function VideoSection() {
   };
 
   return (
-    <section id="esencia" className="py-24 md:py-32 relative overflow-hidden scroll-mt-20">
+    <section id="esencia" className="py-20 md:py-32 relative overflow-hidden scroll-mt-20">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#0066FF]/3 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
+          {/* Left - Video Container */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] mb-4 md:mb-6 px-4"
+            transition={{ duration: 0.8 }}
+            className="relative order-2 lg:order-1"
           >
-            Conoce Nuestra <span className="text-[#0066FF]">Esencia</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-[#666666] max-w-3xl mx-auto leading-relaxed"
-          >
-            Descubre cómo SUBUZ se ha convertido en sinónimo de calidad, pureza y confianza en cada gota
-          </motion.p>
-        </div>
-
-        {/* Video Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative max-w-5xl mx-auto"
-        >
-          {/* Video Frame */}
-          <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl border-2 border-[#0066FF]/10 bg-[#1A1A1A]">
-            {/* Play Button Overlay (Thumbnail) */}
-            {!isPlaying && (
-              <div 
-                className="absolute inset-0 flex items-center justify-center bg-cover bg-center z-20"
-                style={{ backgroundImage: `url(${subuzThumbnail})` }}
-              >
-                {/* Dark overlay for readability */}
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
-                
-                {/* Play Button */}
-                <motion.button
-                  onClick={handlePlay}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative z-30"
+            {/* Video Frame */}
+            <div className="relative aspect-auto max-h-[60vh] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,102,255,0.15)] border-2 border-[#0066FF]/10 bg-black">
+              {/* Play Button Overlay (Thumbnail) */}
+              {!isPlaying && (
+                <div 
+                  className="absolute inset-0 flex items-center justify-center bg-cover bg-center z-20"
+                  style={{ backgroundImage: `url(${subuzThumbnail})` }}
                 >
-                  {/* Pulse rings */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full bg-[#0066FF]/30"
-                    animate={{
-                      scale: [1, 1.5, 1],
-                      opacity: [0.6, 0, 0.6],
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
                   
-                  {/* Play button */}
-                  <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:bg-[#0066FF] transition-all duration-300">
-                    <Play className="text-[#0066FF] group-hover:text-white transition-colors" size={48} fill="currentColor" />
+                  <motion.button
+                    onClick={handlePlay}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group relative z-30"
+                  >
+                    <motion.div
+                      className="absolute inset-0 rounded-full bg-[#0066FF]/30"
+                      animate={{
+                        scale: [1, 1.5, 1],
+                        opacity: [0.6, 0, 0.6],
+                      }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                    
+                    <div className="relative w-20 h-20 md:w-28 md:h-28 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:bg-[#0066FF] transition-all duration-300">
+                      <Play className="text-[#0066FF] group-hover:text-white transition-colors" size={40} fill="currentColor" />
+                    </div>
+                  </motion.button>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
+                    <h3 className="text-lg md:text-xl font-black text-white">
+                      SUBUZ #MásGourmet
+                    </h3>
                   </div>
-                </motion.button>
-
-                {/* Video Title Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
-                  <h3 className="text-lg md:text-3xl font-black text-white">
-                    SUBUZ: Tu Mejor Compañía #MásGourmet
-                  </h3>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Actual Video Tag */}
-            <video
-              ref={videoRef}
-              className="w-full h-full object-cover"
-              src={subuzVideo}
-              poster={subuzThumbnail}
-              controls={isPlaying}
-              playsInline
-              webkitPlaysInline
-              preload="auto"
-            />
+              <video
+                ref={videoRef}
+                className="w-full h-full max-h-[60vh] object-contain"
+                src={subuzVideo}
+                poster={subuzThumbnail}
+                controls={isPlaying}
+                playsInline
+                webkitPlaysInline
+                preload="auto"
+              />
 
-            {/* Close button when playing */}
-            {isPlaying && (
-              <motion.button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                onClick={handleClose}
-                className="absolute top-4 right-4 z-30 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
-              >
-                <X size={24} />
-              </motion.button>
-            )}
-          </div>
-        </motion.div>
+              {isPlaying && (
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  onClick={handleClose}
+                  className="absolute top-4 right-4 z-30 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                >
+                  <X size={24} />
+                </motion.button>
+              )}
+            </div>
+          </motion.div>
 
-        {/* Bottom Info Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8 }}
-          className="grid md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto"
-        >
-          {[
-            {
-              title: 'Proceso de Purificación',
-              description: 'Tecnología de punta para garantizar la máxima pureza',
-            },
-            {
-              title: 'Certificación Sanitaria',
-              description: 'Cumplimos con los más altos estándares de calidad',
-            },
-            {
-              title: 'Compromiso con Chiclayo',
-              description: 'Orgullosamente chiclayanos, sirviendo a nuestra ciudad',
-            },
-          ].map((item, index) => (
+          {/* Right - Content Section */}
+          <div className="text-center lg:text-left order-1 lg:order-2">
             <motion.div
-              key={index}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="p-6 rounded-2xl bg-white border-2 border-[#0066FF]/10 shadow-lg hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              <h4 className="text-lg font-black text-[#0066FF] mb-2">{item.title}</h4>
-              <p className="text-[#666666] text-sm leading-relaxed">{item.description}</p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] mb-6 leading-[1.1]">
+                Conoce Nuestra <br />
+                <span className="text-[#0066FF]">Esencia</span>
+              </h2>
+              <p className="text-lg md:text-xl text-[#666666] leading-relaxed mb-8">
+                Descubre cómo SUBUZ se ha convertido en sinónimo de calidad, pureza y confianza en cada gota. Nuestra pasión es servirte lo mejor de Chiclayo.
+              </p>
+              
+              {/* Optional brand accent */}
+              <div className="flex items-center justify-center lg:justify-start gap-4">
+                <div className="h-1 w-12 bg-[#0066FF] rounded-full"></div>
+                <span className="text-sm font-black uppercase tracking-widest text-[#0066FF]">Desde 2021</span>
+              </div>
             </motion.div>
-          ))}
-        </motion.div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

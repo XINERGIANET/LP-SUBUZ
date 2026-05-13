@@ -30,7 +30,7 @@ export function Footer() {
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 <a
-                  href="https://www.instagram.com/subuz_agua_y_hielo/"
+                  href="https://www.instagram.com/subuz.aguayhielo/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700/80 text-slate-200 transition hover:border-[#0066FF] hover:bg-[#0066FF]/20 hover:text-white"
