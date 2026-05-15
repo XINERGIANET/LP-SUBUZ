@@ -99,15 +99,15 @@ export function HomePage() {
       <VideoSection />
 
       <ServiceIconsStrip
-        title="Línea clara, mismas reglas en cada entrega"
+        title="Cada entrega, con el mismo criterio"
         subtitle="Agua, hielo y ruta, en una sola lógica"
         body="Organizamos reparto, envases retornables y documentación para que usted tenga claro de dónde sale el producto. Si necesita"
         bodyHighlight="bidón, bolsa o seguimiento de lote"
         items={[
+          { icon: ShieldCheck, label: 'Procesos controlados' },
           { icon: Droplets, label: 'Agua de mesa de 20 litros' },
-          { icon: Snowflake, label: 'Hielo Gourmet' },
-          { icon: Package, label: 'Hielo Tradicional' },
-          { icon: Truck, label: 'Presentaciones de 2kg, 3kg y 5kg' },
+          { icon: Snowflake, label: 'Hielo tradicional y Gourmet' },
+          { icon: Truck, label: 'Logística adecuada' },
         ]}
       />
 

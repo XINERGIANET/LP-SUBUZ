@@ -1,4 +1,4 @@
-import { Truck, Droplets, Package, Snowflake } from 'lucide-react';
+import { Truck, Droplets, Package, Snowflake, ShieldCheck } from 'lucide-react';
 import { FullBleedSlide } from '../components/FullBleedSlide';
 import { SectionSlide } from '../components/SectionSlide';
 import { ServiceIconsStrip } from '../components/ServiceIconsStrip';

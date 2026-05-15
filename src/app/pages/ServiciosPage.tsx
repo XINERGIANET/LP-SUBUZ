@@ -34,11 +34,10 @@ export function ServiciosPage() {
       <FullBleedSlide
         headingLevel="h1"
         eyebrow="SUBUZ"
-        title="Servicios"
-        titleAccent="pensados para tu ritmo"
+        title="Equipamos negocios"
+        titleAccent="para ofrecer una mejor experiencia"
         description={[
-          'Además del producto, te explicamos cómo encaja el pedido, el dispensador en tu espacio y el hielo en tu congeladora, con el mismo criterio de planta y registro.',
-          'Nada de promesas genéricas: si algo no cuadra con tu local o tu casa, lo vemos antes de cargar el camión.',
+          '“Desde congeladoras hasta dispensadores de agua, en SUBUZ brindamos soluciones prácticas, modernas y confiables para negocios que buscan crecer.”',
         ]}
         image={bannerServicios}
         imageAlt="Agua de mesa e hielo en entorno de trabajo"
