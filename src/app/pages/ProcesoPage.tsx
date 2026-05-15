@@ -1,16 +1,14 @@
 import { motion } from 'motion/react';
-import { Droplets, Shield, Sparkles, Truck, Play, Beaker, ClipboardCheck, Timer } from 'lucide-react';
-import { useState, useRef } from 'react';
+import { Droplets, Shield, Sparkles, Truck, Beaker, ClipboardCheck, Timer } from 'lucide-react';
+
+
+
 import { FullBleedSlide } from '../components/FullBleedSlide';
-import { SectionSlide } from '../components/SectionSlide';
+
 import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { CtaColorStrip } from '../components/CtaColorStrip';
 import { assetUrl } from '../lib/assets';
 
-const plantaProceso = assetUrl('proceso-planta.jpg');
-const bidonAltaRes = assetUrl('image-7.png');
-const subuzVideo = assetUrl('subuz-video.mp4');
-const subuzThumbnail = assetUrl('image-19.png');
 const bannerProceso = assetUrl('banner-proceso.png');
 
 const pasos = [
@@ -40,30 +38,21 @@ const pasos = [
   },
 ];
 
-export function ProcesoPage() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlay = () => {
-    if (videoRef.current) {
-      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {
-        if (videoRef.current) {
-          videoRef.current.muted = true;
-          videoRef.current.play().then(() => setIsPlaying(true));
-        }
-      });
-    }
-  };
+
+
+
+export function ProcesoPage() {
+
 
   return (
     <>
       <FullBleedSlide
         headingLevel="h1"
         eyebrow="Planta y proceso"
-        title="¿Cómo trabajamos?"
+        title="Detrás de cada entrega, hay un proceso de calidad"
         description={[
-          'Cada bidón o bolsa sigue un flujo fijo, con muestreo y trazabilidad. La planta no es un decorado: es donde se toman las decisiones de lote, cada día.',
-          'Por eso mostramos el proceso, los pasos y un video real de nuestras instalaciones, con la misma luz que usted vería al visitar.',
+          'Trabajamos con organización, control y compromiso para ofrecer productos y soluciones que cumplen los más altos estándares.',
         ]}
         image={bannerProceso}
         imageAlt="Línea de llenado y agua en planta"
@@ -74,28 +63,14 @@ export function ProcesoPage() {
 
       <ServiceIconsStrip
         title="Cada lote, con respaldo y registro"
-        body="Muestreo, sellado y reparto: no vendemos el proceso en teoría. Si pregunta, le mostramos"
-        bodyHighlight="el criterio real de envasado y lote"
+        body="Desde el lote de producción hasta la entrega final, en SUBUZ seguimos procesos organizados y controles de calidad que garantizan"
+        bodyHighlight="frescura, conservación y confianza en cada producto"
         items={[
-          { icon: Beaker, label: 'Muestreo' },
-          { icon: ClipboardCheck, label: 'Conformidad' },
-          { icon: Timer, label: 'Turno y lote' },
-          { icon: Truck, label: 'Salida a ruta' },
+          { icon: Beaker, label: 'Producción y control de calidad' },
+          { icon: ClipboardCheck, label: 'conservación y almacenamiento' },
+          { icon: Timer, label: 'preparación y despacho' },
+          { icon: Truck, label: 'entrega y atención al cliente' },
         ]}
-      />
-
-      <SectionSlide
-        eyebrow="Nuestra planta"
-        title="Un ambiente"
-        titleAccent="ordenado y controlado"
-        description={[
-          'Áreas separadas por etapa, limpieza programada, equipos calibrados y registro de turnos. El orden no es un cartel: es condición para que el producto sea repetible, lote a lote.',
-          'El agua avanza en un solo sentido, desde el tratamiento hasta el envasado, con controles y sin mezclar criterios entre turnos ni improvisar muestreo.',
-        ]}
-        image={plantaProceso}
-        imageAlt="Sala y equipos de planta SUBUZ"
-        textSide="right"
-        background="soft"
       />
 
       <section className="border-t border-slate-200/80 bg-white py-16 md:py-24">
@@ -139,72 +114,10 @@ export function ProcesoPage() {
         </div>
       </section>
 
-      <SectionSlide
-        eyebrow="Estándar"
-        title="No envasamos"
-        titleAccent="si el lote no cumple"
-        description={[
-          'Si un parámetro no está dentro de lo aprobado, el lote no se envasa para venta. El criterio es el mismo con pedidos pequeños o con pedidos de volumen: primero el cumplimiento, después la carga al camión.',
-        ]}
-        bullets={[
-          'Registro sanitario vigente y consultable',
-          'Control microbiológico por lote',
-          'Envases sellados y trazables',
-        ]}
-        image={bidonAltaRes}
-        imageObjectPositionClass="object-[58%_42%] md:object-[76%_44%] lg:object-[78%_42%]"
-        imageAlt="Bidón SUBUZ 20 L con etiqueta"
-        textSide="left"
-        background="white"
-      />
 
-      <section className="border-t border-slate-200/80 bg-gradient-to-b from-slate-900 via-[#0a1a33] to-slate-950 py-16 md:py-24">
-        <div className="subuz-page mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-              Planta
-            </p>
-            <h2 className="mt-2 text-balance text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">
-              Conoce nuestra planta
-            </h2>
-            <p className="mt-3 text-pretty text-slate-300 sm:text-lg">
-              Recorrido audiovisual en nuestras instalaciones de Chiclayo.
-            </p>
-          </div>
 
-          <div
-            className="relative overflow-hidden rounded-2xl border border-slate-700/80 bg-black ring-1 ring-white/10"
-            style={{
-              boxShadow:
-                '0 0 0 1px rgba(15, 23, 42, 0.5), 0 32px 80px -20px rgba(0,0,0,0.5)',
-            }}
-          >
-            <video
-              ref={videoRef}
-              src={subuzVideo}
-              poster={subuzThumbnail}
-              controls={isPlaying}
-              playsInline
-              className="aspect-video w-full object-cover"
-            />
-            {!isPlaying && (
-              <button
-                type="button"
-                onClick={handlePlay}
-                aria-label="Reproducir video"
-                className="absolute inset-0 flex cursor-pointer items-center justify-center bg-slate-950/35 transition hover:bg-slate-950/45"
-              >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-white/95 shadow-xl md:h-20 md:w-20">
-                  <Play
-                    className="ml-1 h-7 w-7 text-[#0066FF] md:h-8 md:w-8"
-                    fill="currentColor"
-                  />
-                </div>
-              </button>
-            )}
-          </div>
-        </div>
-      </section>
+
+
 
       <CtaColorStrip
         title="¿Preguntas sobre muestreo o registro?"

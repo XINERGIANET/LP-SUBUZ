@@ -1,4 +1,4 @@
-import { Phone, CalendarClock, Truck, ThermometerSnowflake, CheckCircle2 } from 'lucide-react';
+import { Phone, CalendarClock, Truck, ThermometerSnowflake, CheckCircle2, Droplets } from 'lucide-react';
 import { Link } from 'react-router';
 import { FullBleedSlide } from '../components/FullBleedSlide';
 import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
@@ -11,18 +11,21 @@ const bannerServicios = assetUrl('banner-servicios.png');
 const imgComoFunciona = assetUrl('servicio-como-funciona.png');
 const imgDispensador = assetUrl('servicio-dispensador.png');
 const imgCongeladora = assetUrl('servicio-congeladora.png');
+const imgExhibidores = assetUrl('exhibidores.jpeg');
+
 
 const anchorLinks = [
   { id: 'como-funciona', label: 'Cómo funciona' },
   { id: 'dispensador', label: 'Así es tu dispensador' },
   { id: 'congeladora', label: 'Así es tu congeladora' },
+  { id: 'exhibidores', label: 'Exhibidores' },
 ];
 
 const pasosResumen = [
-  { n: '01', t: 'Pedido', d: 'Indica producto, dirección y franja horaria.' },
-  { n: '02', t: 'Confirmación', d: 'Te respondemos con ruta y condiciones de entrega.' },
-  { n: '03', t: 'Preparación', d: 'Desde planta, bajo el mismo registro de siempre.' },
-  { n: '04', t: 'Entrega', d: 'En sitio, con sellos e higiene visibles.' },
+  { n: '1', t: 'Contáctanos', d: 'Cuéntanos qué necesita tu negocio y te ayudaremos a encontrar la mejor solución.' },
+  { n: '2', t: 'Evaluamos tu espacio', d: 'Analizamos el área y recomendamos el dispensador o equipo de frío ideal para tu operación.' },
+  { n: '3', t: 'Instalamos el equipo', d: 'Realizamos la entrega e instalación de manera rápida, segura y profesional.' },
+  { n: '4', t: 'Empieza a disfrutar el servicio', d: 'Tu negocio queda listo para ofrecer una experiencia más profesional, moderna y eficiente en cada detalle.' },
 ];
 
 export function ServiciosPage() {
@@ -45,22 +48,22 @@ export function ServiciosPage() {
       />
 
       <ServiceIconsStrip
-        title="Orden en cada paso"
-        subtitle="Desde el primer contacto hasta la entrega"
-        body="El servicio no es solo «llegar y dejar»: coordinamos"
-        bodyHighlight="pedido, ventana y producto bajo la misma ficha"
+        title="Servicios que impulsan tu negocio"
+        subtitle="Calidad y compromiso en cada entrega"
+        body="En SUBUZ trabajamos para que tu negocio siempre esté listo para ofrecer"
+        bodyHighlight="frescura, calidad y una mejor experiencia"
         items={[
-          { icon: Phone, label: 'Pedido por teléfono o WhatsApp' },
-          { icon: CalendarClock, label: 'Ventana y ruta acordada' },
-          { icon: Truck, label: 'Entrega en Chiclayo' },
-          { icon: ThermometerSnowflake, label: 'Hielo y cadena en frío' },
+          { icon: ThermometerSnowflake, label: 'Equipos de Frío' },
+          { icon: Droplets, label: 'Dispensadores de agua' },
+          { icon: Truck, label: 'Distribución y reparto' },
+          { icon: CheckCircle2, label: 'Soluciones para negocios' },
         ]}
       />
 
       <section className="border-t border-slate-200/80 bg-white py-10 md:py-12">
         <div className="subuz-page mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-lg font-extrabold text-slate-900 sm:text-xl">
-            Cómo encaja el servicio
+            Sencillo y Profesional
           </h2>
           <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {pasosResumen.map((p) => (
@@ -87,8 +90,8 @@ export function ServiciosPage() {
         title="Cómo funciona"
         titleAccent="el servicio SUBUZ"
         description={[
-          'Usted pide con datos claros: dirección, tipo de producto (agua, hielo o ambos), volumen aproximado y, si aplica, retiro de envase usado.',
-          'Nosotros confirmamos ventana de entrega y condiciones. La planta prepara bajo el mismo esquema de lote y registro que ya conoce; en ruta, el reparto prioriza sellos, higiene visible y entrega sin improvisar en la puerta.',
+          'Haz tu pedido, coordinamos la entrega y nosotros nos encargamos del resto. Rápido, práctico y confiable.',
+          'Nos enfocamos en brindar una atención rápida, organizada y puntual en cada entrega.',
         ]}
         bullets={[
           'Pedido por canales fijos (teléfono / WhatsApp)',
@@ -108,14 +111,13 @@ export function ServiciosPage() {
         title="Así es tu"
         titleAccent="dispensador"
         description={[
-          'El bidón de 20 L se apoya en un dispensador manual o de sobremesa, con grifo a altura de uso. La base debe ser estable, lejos de fuentes de calor directo y con acceso fácil para el cambio de botellón.',
-          'SUBUZ no sustituye el manual del fabricante, pero sí le orienta para que el cambio sea seguro, sin forzar roscas, y con limpieza periódica de la zona del grifo. En negocios, el criterio es el mismo: orden alrededor del punto de consumo.',
+          'Instalamos dispensadores de agua ideales para empresas y negocios que buscan ofrecer una experiencia más profesional, práctica y moderna.',
         ]}
         bullets={[
-          'Compatibilidad con garrafones estándar de 20 L',
-          'Cambio de botellón con el envase boca abajo, sin golpes',
-          'Limpieza externa y zona de descarga con paño e higienizante',
-          'Ideal para hogar, oficina y pequeño comercio',
+          'Agua siempre disponible',
+          'Ideal para oficinas y negocios',
+          'Práctico y funcional',
+          'Diseño moderno y elegante',
         ]}
         image={imgDispensador}
         imageAlt="Dispensador con bidón de agua"
@@ -129,19 +131,39 @@ export function ServiciosPage() {
         title="Así es tu"
         titleAccent="congeladora"
         description={[
-          'El hielo clásico y gourmet viaja en bolsa sellada; en su congeladora debe ubicarse en estantes limpios, sin aplastar la bolsa de forma que rompa el sellado, y lejos de olores fuertes de otros alimentos.',
-          'En bares y cocinas con alto turno, conviene rotar por lote: primero lo que recibió antes, para no mezclar producto viejo con recién ingresado. Ese hábito es el que acompaña a un servicio de hielo serio, no a una carga aislada.',
+          'Brindamos soluciones de frío diseñadas para negocios que buscan mejorar la conservación, presentación y experiencia de sus clientes.',
         ]}
         bullets={[
-          'Temperatura estable según su equipo; sin abrir en exceso la puerta',
-          'Bolsas enteras, sin triturar sobre superficies no higiénicas',
-          'Separación de olores: hielo aparte de pescado u otros productos',
-          'Consulte volumen: eventos o picos con anticipación',
+          'Conservación eficiente',
+          'Equipos modernos y funcionales',
+          'Ideal para negocios y eventos',
+          'Mejor presentación para tu negocio',
         ]}
         image={imgCongeladora}
         imageAlt="Almacenamiento de hielo en congeladora comercial"
         textSide="left"
         background="white"
+      />
+
+      <SectionSlide
+        sectionId="exhibidores"
+        eyebrow="Presentación"
+        title="Modernos"
+        titleAccent="exhibidores"
+        description={[
+          'Ofrecemos exhibidores modernos y funcionales que permiten mantener tus productos visibles, organizados y en óptimas condiciones para una mejor experiencia de compra.',
+          'La mejor presentación también impulsa las ventas.',
+        ]}
+        bullets={[
+          'Mejor presentación de productos',
+          'Conservación eficiente',
+          'Ideal para negocios y tiendas',
+          'Mayor visibilidad para tus productos',
+        ]}
+        image={imgExhibidores}
+        imageAlt="Exhibidores modernos para negocios"
+        textSide="right"
+        background="soft"
       />
 
       <section className="border-t border-slate-200/80 bg-[#0a2540] py-10 md:py-12">

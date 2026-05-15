@@ -35,26 +35,23 @@ export function ProductosPage() {
         body="Hogar, oficina, bar o evento: el hilo conductor es trazabilidad, higiene y el mismo criterio de lote, no ofertas que cambian el producto."
         bodyHighlight="agua, hielo y retorno de envase"
         items={[
-          { icon: Truck, label: 'Reparto y coordinación' },
-          { icon: Droplets, label: 'Agua 20 L retornable' },
-          { icon: Package, label: 'Hielo 5 kg' },
-          { icon: Snowflake, label: 'Hielo gourmet 1,5 kg' },
+          { icon: Droplets, label: 'Agua de mesa de 20 litros' },
+          { icon: Snowflake, label: 'Hielo Gourmet' },
+          { icon: Package, label: 'Hielo Tradicional' },
+          { icon: Truck, label: 'Presentaciones de 2kg, 3kg y 5kg' },
         ]}
       />
 
       <SectionSlide
         eyebrow="Bidones de agua"
-        title="Agua de mesa"
-        titleAccent="SUBUZ · 20 L"
+        title="Agua de mesa de 20 Litros"
+        titleAccent=""
         description={[
-          'Nuestro bidón de 20 litros es el pilar del servicio SUBUZ. Lo entregamos en hogares, oficinas y negocios que buscan un agua confiable para consumo diario.',
-          'Cada bidón pasa por un proceso de purificación multietapa, ozonización y control de calidad, y se distribuye en envases retornables en condiciones higiénicas.',
+          '“Más que agua, una experiencia de hidratación. Nuestro bidón de 20 litros SUBUZ combina pureza, frescura y calidad para acompañarte todos los días.”',
         ]}
         bullets={[
-          'Envase retornable de 20 litros',
-          'Agua purificada y ozonizada',
-          'Registro sanitario vigente',
-          'Ideal para hogares, oficinas y negocios',
+          'Agua ozonizada y osmotizada.',
+          'Ideal para hogares y empresas.',
         ]}
         image={fotoProductoAlta}
         imageObjectPositionClass="object-[58%_42%] md:object-[76%_44%] lg:object-[78%_42%]"
@@ -64,42 +61,40 @@ export function ProductosPage() {
       />
 
       <SectionSlide
-        eyebrow="Hielo clásico"
-        title="Hielo clásico"
-        titleAccent="para el día a día"
+        eyebrow="Hielo"
+        title="Hielo tradicional"
+        titleAccent=""
         description={[
-          'Pensado para uso cotidiano: negocios, reuniones, bodegas, juguerías y cualquier lugar donde se necesite hielo limpio y constante.',
-          'Producido con agua purificada, en entorno controlado, en bolsas selladas e higiénicas.',
+          '“El hielo de siempre, con la calidad SUBUZ. Perfecto para reuniones, negocios, eventos y consumo diario.”',
         ]}
         bullets={[
-          'Cubitos de forma estándar',
-          'Elaborado con agua purificada',
-          'Bolsa sellada y rotulada',
-          'Presentación de 5 kg',
+          'Pureza garantizada',
+          'Frescura inmediata',
+          'Calidad confiable',
+          'Perfecto para cualquier ocasión',
         ]}
         image={hieloClasico}
-        imageAlt="Bolsa de hielo clásico SUBUZ 5 kg"
+        imageAlt="Bolsa de hielo tradicional SUBUZ"
         textSide="left"
         background="white"
       />
 
       <SectionSlide
-        eyebrow="Hielo gourmet"
-        title="Hielo gourmet"
-        titleAccent="para bares y restaurantes"
+        eyebrow="Gourmet"
+        title="Hielo Gourmet"
+        titleAccent=""
         description={[
-          'Línea premium para cocteleras, restaurantes y eventos donde el hielo es parte visible de la experiencia.',
-          'Más denso y transparente, derretimiento más lento, sin alterar el sabor de las bebidas.',
+          'Transforma cualquier bebida en una experiencia premium.',
+          '“Diseñado para bares, eventos y personas que buscan una experiencia superior en cada bebida.”',
         ]}
         bullets={[
-          'Cristalino, transparente y denso',
-          'Derretimiento más lento',
-          'No altera el sabor',
-          'Coctelería y alta cocina',
+          'Cristalino y elegante',
+          'Mayor duración',
+          'Cubos de gran tamaño',
         ]}
         image={fotoProductoAltahielo}
         imageObjectPositionClass="object-[42%_42%] md:object-[24%_44%] lg:object-[22%_42%]"
-        imageAlt="Bolsa de hielo gourmet SUBUZ 1,5 kg"
+        imageAlt="Hielo gourmet SUBUZ para coctelería"
         textSide="right"
         background="soft"
       />

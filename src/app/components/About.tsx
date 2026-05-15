@@ -152,10 +152,10 @@ export function About() {
             
             <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
               <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                <Star className="w-8 h-8 text-white fill-white" /> Valores Culturales
+                <Star className="w-8 h-8 text-white fill-white" /> Valores
               </h4>
               <p className="text-white/90 text-lg leading-relaxed italic font-medium">
-                “Superación, eficiencia, innovación, familia, equipo y actitud”
+                “Superación, eficiencia, innovación, actitud”
               </p>
             </div>
           </div>

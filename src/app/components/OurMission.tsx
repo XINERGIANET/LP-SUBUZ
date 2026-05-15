@@ -20,7 +20,7 @@ const pillars = [
     icon: Heart,
     title: 'Valores',
     description:
-      'Calidad sin compromisos, transparencia en nuestros procesos, responsabilidad social con Chiclayo, innovación constante y un servicio excepcional que nos convierte en tu mejor compañía.',
+      'Superación, eficiencia, innovación, actitud.',
     gradient: 'from-[#0066FF] to-[#3385FF]',
   },
 ];

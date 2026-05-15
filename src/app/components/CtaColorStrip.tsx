@@ -50,7 +50,7 @@ export function CtaColorStrip({
           {href ? (
             <a
               href={href}
-              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#0a2540] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#152a45]"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#0066FF] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0052CC]"
             >
               {ctaLabel}
               <ArrowRight className="h-4 w-4" />
@@ -58,7 +58,7 @@ export function CtaColorStrip({
           ) : (
             <Link
               to={to}
-              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#0a2540] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#152a45]"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#0066FF] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0052CC]"
             >
               {ctaLabel}
               <ArrowRight className="h-4 w-4" />

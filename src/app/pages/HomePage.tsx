@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
-import { ArrowRight, Truck, Droplets, Package, Snowflake, Heart, MessageCircle, Sparkles } from 'lucide-react';
+import { ArrowRight, Truck, Droplets, Package, Snowflake, Heart, MessageCircle, Sparkles, ShieldCheck } from 'lucide-react';
 import { SectionSlide } from '../components/SectionSlide';
 import { ServiceIconsStrip } from '../components/ServiceIconsStrip';
 import { CtaColorStrip } from '../components/CtaColorStrip';
@@ -95,19 +95,19 @@ export function HomePage() {
           </div>
         </div>
       </section>
-      
+
       <VideoSection />
 
       <ServiceIconsStrip
-        title="Cada entrega, con el mismo criterio"
+        title="Línea clara, mismas reglas en cada entrega"
         subtitle="Agua, hielo y ruta, en una sola lógica"
         body="Organizamos reparto, envases retornables y documentación para que usted tenga claro de dónde sale el producto. Si necesita"
         bodyHighlight="bidón, bolsa o seguimiento de lote"
         items={[
-          { icon: Truck, label: 'Reparto a domicilio' },
-          { icon: Droplets, label: 'Bidones y agua de mesa' },
-          { icon: Package, label: 'Hielo clásico y gourmet' },
-          { icon: Snowflake, label: 'Mismo registro, mismo criterio' },
+          { icon: Droplets, label: 'Agua de mesa de 20 litros' },
+          { icon: Snowflake, label: 'Hielo Gourmet' },
+          { icon: Package, label: 'Hielo Tradicional' },
+          { icon: Truck, label: 'Presentaciones de 2kg, 3kg y 5kg' },
         ]}
       />
 
@@ -117,7 +117,7 @@ export function HomePage() {
 
       <section className="bg-[#F0F7FF] py-16 md:py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -127,7 +127,7 @@ export function HomePage() {
               SUBUZ a domicilio
             </h2>
             <p className="text-lg md:text-xl text-slate-700 max-w-2xl leading-relaxed font-medium">
-              Para ti. Para tu familia. Para tu equipo. Con SUBUZ no tendrás que preocuparte de nada. 
+              Para ti. Para tu familia. Para tu equipo. Con SUBUZ no tendrás que preocuparte de nada.
               Llevamos pureza y frescura directamente a tu puerta. Tú, simplemente, disfruta.
             </p>
           </motion.div>
@@ -141,9 +141,9 @@ export function HomePage() {
               viewport={{ once: true }}
               className="relative group rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl border-4 border-white"
             >
-              <img 
-                src={assetUrl('hogar-subuz.png')} 
-                alt="SUBUZ para el hogar" 
+              <img
+                src={assetUrl('hogar-subuz.png')}
+                alt="SUBUZ para el hogar"
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0066FF]/80 via-transparent to-transparent opacity-80" />
@@ -164,9 +164,9 @@ export function HomePage() {
               transition={{ delay: 0.2 }}
               className="relative group rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl border-4 border-white"
             >
-              <img 
-                src={assetUrl('empresa-subuz.png')} 
-                alt="SUBUZ para empresas" 
+              <img
+                src={assetUrl('empresa-subuz.png')}
+                alt="SUBUZ para empresas"
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0066FF]/80 via-transparent to-transparent opacity-80" />
@@ -184,10 +184,10 @@ export function HomePage() {
       <section className="bg-[#0066FF] py-10 md:py-14 px-4 relative overflow-hidden">
         {/* Decorative circle */}
         <div className="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-        
+
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-6">
-            <motion.div 
+            <motion.div
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-2xl bg-white/20"
@@ -200,7 +200,7 @@ export function HomePage() {
               </h2>
             </div>
           </div>
-          <Link 
+          <Link
             to="/contacto"
             className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-lg font-black text-[#0066FF] transition hover:bg-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.15)] group"
           >
