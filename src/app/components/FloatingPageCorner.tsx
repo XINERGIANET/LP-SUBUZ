@@ -1,7 +1,7 @@
 import React, { useState, useEffect, type MouseEvent } from 'react';
 import { Link, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
-import { X } from 'lucide-react';
+import { X, ChevronRight } from 'lucide-react';
 import { assetUrl } from '../lib/assets';
 
 const repartidorMedio = assetUrl('personaje.png');
@@ -89,7 +89,7 @@ export function FloatingPageCorner() {
                   </div>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setChatOpen(false)}
                 className="rounded-full p-1 transition hover:bg-white/10"
               >
@@ -100,7 +100,7 @@ export function FloatingPageCorner() {
             {/* Body */}
             <div className="bg-[#e5ddd5] p-5 pb-8 relative">
               <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")' }}></div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
@@ -167,20 +167,36 @@ export function FloatingPageCorner() {
                   whileHover={{ scale: 1.05, rotate: -0.8 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: 'spring', stiffness: 420, damping: 17 }}
+                  className="relative"
                 >
-                  <motion.img
-                    src={repartidorMedio}
-                    alt=""
-                    width={320}
-                    height={380}
-                    className="h-auto w-full max-h-[min(38vh,19rem)] object-contain object-bottom [filter:drop-shadow(0_16px_28px_rgba(15,23,42,0.38))] sm:max-h-[min(50vh,25rem)] md:max-h-[min(52vh,26rem)]"
+                  <motion.div
                     animate={{ y: [0, -8, 0] }}
                     transition={{
                       duration: 2.6,
                       repeat: Infinity,
                       ease: 'easeInOut',
                     }}
-                  />
+                    className="relative pb-2"
+                  >
+                    <img
+                      src={repartidorMedio}
+                      alt=""
+                      width={320}
+                      height={380}
+                      className="h-auto w-full max-h-[min(38vh,19rem)] object-contain object-bottom [filter:drop-shadow(0_16px_28px_rgba(15,23,42,0.38))] sm:max-h-[min(50vh,25rem)] md:max-h-[min(52vh,26rem)]"
+                    />
+                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 z-10 text-center flex justify-center w-full px-2">
+                      <span className="inline-flex flex-col items-center justify-center rounded-2xl bg-gradient-to-r from-[#0066FF] via-[#0052CC] to-[#0066FF] bg-[length:200%_auto] animate-gradient px-4 py-2.5 text-[9px] sm:text-[11px] font-bold text-white shadow-[0_8px_24px_rgba(0,102,255,0.45)] border border-white/20 uppercase tracking-wider hover:shadow-[0_12px_30px_rgba(0,102,255,0.6)] transition-all leading-normal">
+                        <span className="whitespace-nowrap">Obtén tu dispensador</span>
+                        <span className="inline-flex items-center gap-1.5 mt-0.5 whitespace-nowrap">
+                          y congeladora aquí
+                          <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white text-[#0066FF] shadow-sm">
+                            <ChevronRight className="h-2.5 w-2.5 stroke-[3]" />
+                          </span>
+                        </span>
+                      </span>
+                    </div>
+                  </motion.div>
                 </motion.div>
               </Link>
             </motion.div>
@@ -194,7 +210,7 @@ export function FloatingPageCorner() {
         aria-label="Abrir chat de WhatsApp"
         className="pointer-events-auto fixed bottom-16 left-3 z-[56] sm:bottom-20 sm:left-4"
       >
-        <motion.div 
+        <motion.div
           className="relative flex h-[3.65rem] w-[3.65rem] items-center justify-center sm:h-16 sm:w-16"
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.94 }}

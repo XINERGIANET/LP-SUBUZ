@@ -17,6 +17,7 @@ interface SectionSlideProps {
   compact?: boolean;
   /** Encuadre del fondo: p. ej. enfocar bidón o bolsa (misma foto en alta) */
   imageObjectPositionClass?: string;
+  imageFit?: 'cover' | 'contain';
   imageLoading?: 'eager' | 'lazy';
   imageFetchPriority?: 'high' | 'low' | 'auto';
   children?: ReactNode;
@@ -37,6 +38,7 @@ export function SectionSlide({
   headingLevel = 'h2',
   compact = false,
   imageObjectPositionClass = 'object-center',
+  imageFit = 'cover',
   imageLoading = 'lazy',
   imageFetchPriority,
   children,
@@ -134,7 +136,9 @@ export function SectionSlide({
         <img
           src={image}
           alt={imageAlt}
-          className={`absolute inset-0 h-full w-full object-cover ${imageObjectPositionClass}`}
+          className={`absolute inset-0 h-full w-full ${
+            imageFit === 'cover' ? 'object-cover' : 'object-contain'
+          } ${imageObjectPositionClass}`}
           loading={imageLoading}
           decoding="async"
           fetchPriority={imageFetchPriority}

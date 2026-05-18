@@ -147,11 +147,8 @@ export function HomePage() {
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0066FF]/80 via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 flex items-center justify-between">
+              <div className="absolute bottom-0 left-0 right-0 p-8 flex items-center">
                 <h3 className="text-3xl md:text-4xl font-black text-white">Para hogar</h3>
-                <div className="h-14 w-14 rounded-full bg-white flex items-center justify-center text-[#0066FF] shadow-lg group-hover:bg-[#0066FF] group-hover:text-white transition-colors duration-300">
-                  <ArrowRight size={28} />
-                </div>
               </div>
             </motion.div>
 
@@ -170,11 +167,8 @@ export function HomePage() {
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0066FF]/80 via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 flex items-center justify-between">
+              <div className="absolute bottom-0 left-0 right-0 p-8 flex items-center">
                 <h3 className="text-3xl md:text-4xl font-black text-white">Para empresas</h3>
-                <div className="h-14 w-14 rounded-full bg-white flex items-center justify-center text-[#0066FF] shadow-lg group-hover:bg-[#0066FF] group-hover:text-white transition-colors duration-300">
-                  <ArrowRight size={28} />
-                </div>
               </div>
             </motion.div>
           </div>

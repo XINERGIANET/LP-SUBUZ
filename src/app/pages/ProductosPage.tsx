@@ -93,7 +93,7 @@ export function ProductosPage() {
           'Cubos de gran tamaño',
         ]}
         image={fotoProductoAltahielo}
-        imageObjectPositionClass="object-[42%_42%] md:object-[24%_44%] lg:object-[22%_42%]"
+        imageObjectPositionClass="object-center"
         imageAlt="Hielo gourmet SUBUZ para coctelería"
         textSide="right"
         background="soft"

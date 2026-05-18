@@ -2,7 +2,6 @@ import { Outlet, useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
-import { ScrollToTop } from './ScrollToTop';
 import { FloatingPageCorner } from './FloatingPageCorner';
 import { Preloader } from './ui/Preloader';
 
@@ -26,7 +25,6 @@ export function Layout() {
           </main>
           <Footer />
           <FloatingPageCorner />
-          <ScrollToTop />
         </>
       )}
     </div>
