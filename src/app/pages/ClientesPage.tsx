@@ -7,6 +7,7 @@ import { CtaColorStrip } from '../components/CtaColorStrip';
 import { assetUrl } from '../lib/assets';
 
 const bannerClientes = assetUrl('banner-clientes.jpg');
+const imgVasoSubuz = assetUrl('vasoSubuz.png');
 
 
 
@@ -15,8 +16,7 @@ const tipos = [
     title: 'Bares y coctelería',
     description:
       'Hielo gourmet con piezas consistentes, adecuado para coctelería y servicio al bar.',
-    image:
-      'https://images.unsplash.com/photo-1770670644206-608a83cdc343?w=1200&q=80',
+    image: imgVasoSubuz,
   },
   {
     title: 'Restaurantes',
@@ -32,13 +32,7 @@ const tipos = [
     image:
       'https://images.unsplash.com/photo-1758552013326-01b93dd12c3e?w=1200&q=80',
   },
-  {
-    title: 'Empresas y hogar',
-    description:
-      'Bidones de 20 L con envase retornable, entrega a domicilio y el mismo cuidado de higiene y plazo.',
-    image:
-      'https://images.unsplash.com/photo-1765099271664-614c541196ef?w=1200&q=80',
-  },
+
 ];
 
 export function ClientesPage() {
@@ -67,7 +61,6 @@ export function ClientesPage() {
           { icon: Building2, label: 'Bares y coctelería' },
           { icon: UtensilsCrossed, label: 'Restaurantes' },
           { icon: PartyPopper, label: 'Eventos y activaciones' },
-          { icon: Home, label: 'Empresas y hogar' },
         ]}
       />
 

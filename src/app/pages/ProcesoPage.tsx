@@ -67,9 +67,9 @@ export function ProcesoPage() {
         bodyHighlight="frescura, conservación y confianza en cada producto"
         items={[
           { icon: Beaker, label: 'Producción y control de calidad' },
-          { icon: ClipboardCheck, label: 'conservación y almacenamiento' },
-          { icon: Timer, label: 'preparación y despacho' },
-          { icon: Truck, label: 'entrega y atención al cliente' },
+          { icon: ClipboardCheck, label: 'Conservación y almacenamiento' },
+          { icon: Timer, label: 'Preparación y despacho' },
+          { icon: Truck, label: 'Entrega y atención al cliente' },
         ]}
       />
 
@@ -119,10 +119,6 @@ export function ProcesoPage() {
 
 
 
-      <CtaColorStrip
-        title="¿Preguntas sobre muestreo o registro?"
-        body="Le orientamos con la misma ficha: sin improvisar cifras ni «versión comercial» del proceso."
-      />
     </>
   );
 }
