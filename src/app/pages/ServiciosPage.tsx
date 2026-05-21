@@ -165,29 +165,6 @@ export function ServiciosPage() {
         background="soft"
       />
 
-      <section className="border-t border-slate-200/80 bg-[#0a2540] py-10 md:py-12">
-        <div className="subuz-page mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-start gap-3 text-white">
-              <CheckCircle2
-                className="mt-0.5 h-6 w-6 flex-shrink-0 text-sky-300"
-                strokeWidth={1.8}
-              />
-              <p className="text-pretty text-sm leading-relaxed text-slate-200 sm:text-base">
-                Si su instalación o su congeladora tienen requisitos especiales (rampa, acceso, horario
-                nocturno), háganoslo saber al pedido: ajustamos la ventana, no el estándar del
-                producto a escondidas.
-              </p>
-            </div>
-            <Link
-              to="/contacto"
-              className="inline-flex shrink-0 items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0a2540] transition hover:bg-slate-100"
-            >
-              Coordinar detalle
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <CtaColorStrip
         title="¿Dudas sobre ruta, dispensador o hielo en stock?"
