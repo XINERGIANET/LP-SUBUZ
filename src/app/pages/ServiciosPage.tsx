@@ -10,7 +10,9 @@ import { assetUrl } from '../lib/assets';
 const bannerServicios = assetUrl('banner-servicios.png');
 const imgComoFunciona = assetUrl('servicio-como-funciona.png');
 const imgDispensador = assetUrl('servicio-dispensador.png');
-const imgCongeladora = assetUrl('servicio-congeladora.png');
+const imgCongeladora1 = assetUrl('IMG_0004.PNG');
+const imgCongeladora2 = assetUrl('IMG_0005.PNG');
+const imgCongeladora3 = assetUrl('IMG_0006.PNG');
 const imgExhibidores = assetUrl('exhibidores.jpeg');
 
 
@@ -138,7 +140,7 @@ export function ServiciosPage() {
           'Ideal para negocios y eventos',
           'Mejor presentación para tu negocio',
         ]}
-        image={imgCongeladora}
+        image={[imgCongeladora1, imgCongeladora2, imgCongeladora3]}
         imageAlt="Almacenamiento de hielo en congeladora comercial"
         textSide="left"
         background="white"

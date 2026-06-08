@@ -1,5 +1,6 @@
-import { motion } from 'motion/react';
-import { Check } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 interface SectionSlideProps {
@@ -8,7 +9,7 @@ interface SectionSlideProps {
   titleAccent?: string;
   description: string | string[];
   bullets?: string[];
-  image: string;
+  image: string | string[];
   imageAlt: string;
   textSide: 'left' | 'right';
   background?: 'white' | 'soft';
@@ -44,6 +45,18 @@ export function SectionSlide({
   children,
   sectionId,
 }: SectionSlideProps) {
+  const [currentImageIdx, setCurrentImageIdx] = useState(0);
+  const images = Array.isArray(image) ? image : [image];
+
+  useEffect(() => {
+    if (images.length > 1) {
+      const timer = setInterval(() => {
+        setCurrentImageIdx((prev) => (prev + 1) % images.length);
+      }, 4000);
+      return () => clearInterval(timer);
+    }
+  }, [images.length, currentImageIdx]);
+
   const paragraphs = Array.isArray(description) ? description : [description];
   const isTextLeft = textSide === 'left';
   const textBg = background === 'soft' ? 'bg-slate-50' : 'bg-white';
@@ -129,21 +142,59 @@ export function SectionSlide({
       </motion.div>
 
       <div
-        className={`relative order-1 ${mobileImageMinH} w-full overflow-hidden md:min-h-0 ${
+        className={`relative order-1 ${mobileImageMinH} w-full overflow-hidden md:min-h-0 bg-slate-100 ${
           isTextLeft ? 'md:order-2' : 'md:order-1'
         }`}
       >
-        <img
-          src={image}
-          alt={imageAlt}
-          className={`absolute inset-0 h-full w-full ${
-            imageFit === 'cover' ? 'object-cover' : 'object-contain'
-          } ${imageObjectPositionClass}`}
-          loading={imageLoading}
-          decoding="async"
-          fetchPriority={imageFetchPriority}
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+        <AnimatePresence mode="popLayout">
+          <motion.img
+            key={images[currentImageIdx]}
+            src={images[currentImageIdx]}
+            alt={imageAlt}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className={`absolute inset-0 h-full w-full ${
+              imageFit === 'cover' ? 'object-cover' : 'object-contain'
+            } ${imageObjectPositionClass}`}
+            loading={imageLoading}
+            decoding="async"
+            fetchPriority={imageFetchPriority}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </AnimatePresence>
+
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={() => setCurrentImageIdx((prev) => (prev - 1 + images.length) % images.length)}
+              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/60 p-2 text-slate-800 shadow-sm backdrop-blur transition-all hover:bg-white hover:scale-110 focus:outline-none"
+              aria-label="Imagen anterior"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={() => setCurrentImageIdx((prev) => (prev + 1) % images.length)}
+              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/60 p-2 text-slate-800 shadow-sm backdrop-blur transition-all hover:bg-white hover:scale-110 focus:outline-none"
+              aria-label="Siguiente imagen"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+            <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+              {images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentImageIdx(idx)}
+                  className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                    idx === currentImageIdx ? 'bg-white' : 'bg-white/50 hover:bg-white/75'
+                  }`}
+                  aria-label={`Ir a la imagen ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
